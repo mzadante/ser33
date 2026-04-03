@@ -12,6 +12,8 @@
 - `[fix]` Añadida configuración en `.gitignore` para saltarse los archivos de env (`.env` local).
 - `[config]` Archivos HTML y Package parseados para nombrar el proyecto con la identidad visual solicitada: **ser33**.
 - `[config]` Inyectado todo el andamiaje al sistema de versionado Git en commit basal.
+- `[docs]` Creado subagente Especialista en Documentación (Notion) — `.agents/agents/documentation_specialist.md`
+- `[tool]` Creado y ejecutado el script real en Node.js de subida a Notion — `scripts/sync-notion.js`
 
 ### Infraestructura de Agentes
 - `[docs]` Creado subagente QA Experto y Testing — `.agents/agents/qa_expert.md`

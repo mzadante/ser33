@@ -22,7 +22,7 @@
 - [x] Convertir TXT de enlaces a `src/data/external_sources.json`
 - [x] Implementar `useNumerology.js` (Motor de cálculo matemático)
 - [x] Configurar tests de QA Experto (Vitest) para comprobar cálculos
-- [ ] Crear el script real en Node.js de subida a Notion (requerimos PAGE ID)
+- [x] Crear el script real en Node.js de subida a Notion y conectarlo con la API
 
 ### Fase 2: Sonificación ❌
 - [ ] Implementar `useAudioSynthesis.js`
