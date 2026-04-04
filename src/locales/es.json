@@ -1,0 +1,27 @@
+{
+  "app": {
+    "title": "ser",
+    "subtitle": "Manual del Destino",
+    "footerLink": "Transparencia y Fuentes de Verdad"
+  },
+  "form": {
+    "title": "Descubre tu Huella Energética",
+    "instruction": "Ingresa tus datos como aparecen en tu acta de nacimiento.",
+    "nameLabel": "Nombre Completo",
+    "namePlaceholder": "Ej. Nikola Tesla",
+    "dateLabel": "Fecha de Nacimiento",
+    "submitBtn": "Iniciar Sincronización"
+  },
+  "results": {
+    "title": "Tu Código de Barras Álmico",
+    "lifePath": "Camino de Vida",
+    "lifePathDesc": "Tu Misión Principal",
+    "soul": "Número del Alma",
+    "soulDesc": "Tus Deseos Ocultos",
+    "personality": "Personalidad",
+    "personalityDesc": "Tu Máscara Social",
+    "destiny": "Número de Destino",
+    "destinyDesc": "Tu Meta Final",
+    "resetBtn": "Consultar Otra Alma"
+  }
+}

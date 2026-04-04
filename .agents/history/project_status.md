@@ -21,8 +21,10 @@
 - [x] Configurar estructura de dependencias (`jspdf`, `gsap`, etc.)
 - [x] Convertir TXT de enlaces a `src/data/external_sources.json`
 - [x] Implementar `useNumerology.js` (Motor de cálculo matemático)
-- [x] Configurar tests de QA Experto (Vitest) para comprobar cálculos
 - [x] Crear el script real en Node.js de subida a Notion y conectarlo con la API
+- [x] Diseñar el layout base con Glassmorphism y CSS Vanilla Moderno
+- [x] Desplegar animaciones clave con GSAP (Ej. Esfera Dorada en reposo)
+- [x] Configurar la base de Internacionalización con `vue-i18n` (Multi-idioma preparado)
 
 ### Fase 2: Sonificación ❌
 - [ ] Implementar `useAudioSynthesis.js`

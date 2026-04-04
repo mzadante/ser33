@@ -1,0 +1,27 @@
+{
+  "app": {
+    "title": "ser",
+    "subtitle": "Manual of Destiny",
+    "footerLink": "Transparency and Sources of Truth"
+  },
+  "form": {
+    "title": "Discover your Energetic Imprint",
+    "instruction": "Enter your details as they appear on your birth certificate.",
+    "nameLabel": "Full Name",
+    "namePlaceholder": "E.g. Nikola Tesla",
+    "dateLabel": "Date of Birth",
+    "submitBtn": "Start Synchronization"
+  },
+  "results": {
+    "title": "Your Soul Barcode",
+    "lifePath": "Life Path",
+    "lifePathDesc": "Your Main Mission",
+    "soul": "Soul Number",
+    "soulDesc": "Your Hidden Desires",
+    "personality": "Personality",
+    "personalityDesc": "Your Social Mask",
+    "destiny": "Destiny Number",
+    "destinyDesc": "Your Final Goal",
+    "resetBtn": "Consult Another Soul"
+  }
+}

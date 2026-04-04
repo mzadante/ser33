@@ -13,7 +13,13 @@
 - `[config]` Archivos HTML y Package parseados para nombrar el proyecto con la identidad visual solicitada: **ser33**.
 - `[config]` Inyectado todo el andamiaje al sistema de versionado Git en commit basal.
 - `[docs]` Creado subagente Especialista en Documentación (Notion) — `.agents/agents/documentation_specialist.md`
+- `[docs]` Creado subagente Animador Digital Especialista UI/UX — `.agents/agents/ui_ux_animator.md`
 - `[tool]` Creado y ejecutado el script real en Node.js de subida a Notion — `scripts/sync-notion.js`
+- `[tool]` Creado script para reportes push a Notion — `scripts/push-report.js`
+
+### Internacionalización y SEO
+- `[feat]` Instalado e integrado `vue-i18n`. Arquitectura multilingüe funcional con `es`/`en`.
+- `[fix]` Configurado correctamente el SEO Local de Meta Descriptions y cambio a `<html lang="es">`.
 
 ### Infraestructura de Agentes
 - `[docs]` Creado subagente QA Experto y Testing — `.agents/agents/qa_expert.md`
