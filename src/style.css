@@ -1,17 +1,18 @@
 :root {
   /* Color Palette - Cosmic Dark & Radiant Gold */
+  --bg-main: #050505;
   --bg-cosmic: #0a0a0f;
-  --bg-glass: rgba(18, 18, 25, 0.6);
+  --bg-glass: rgba(10, 10, 15, 0.15); /* Mucho más transparente para eliminar el gris */
   --gold-radiant: #d4af37;
   --gold-hover: #f1cf5e;
   --text-main: #e2e8f0;
   --text-muted: #94a3b8;
-  --gold-glow: rgba(212, 175, 55, 0.4);
-  --border-glass: rgba(255, 255, 255, 0.08);
+  --gold-glow: rgba(212, 175, 55, 0.3);
+  --border-glass: rgba(255, 255, 255, 0.1);
 
   /* Fonts */
   --font-primary: 'Outfit', sans-serif;
-  --font-title: 'Cinzel', serif; /* Para Números y Títulos Místicos */
+  --font-title: 'Cinzel', serif;
 }
 
 * {
@@ -22,14 +23,11 @@
 
 body {
   font-family: var(--font-primary);
-  background-color: var(--bg-cosmic);
+  background-color: var(--bg-main);
   color: var(--text-main);
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
-  background-image: 
-    radial-gradient(circle at 15% 50%, rgba(212, 175, 55, 0.03), transparent 25%),
-    radial-gradient(circle at 85% 30%, rgba(0, 163, 255, 0.03), transparent 25%);
 }
 
 #app {
@@ -38,31 +36,31 @@ body {
   flex-direction: column;
 }
 
-/* Glassmorphism Utilities */
+/* Glassmorphism Refinado */
 .glass-panel {
   background: var(--bg-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid var(--border-glass);
-  border-radius: 12px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  padding: 2.5rem; /* ¡Padding corregido! */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-title);
   font-weight: 400;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
 }
 
 /* Base Inputs */
 input {
-  background: rgba(0,0,0,0.4);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-glass);
   color: var(--text-main);
-  padding: 12px 16px;
+  padding: 1rem;
   border-radius: 8px;
-  font-family: var(--font-primary);
-  font-size: 1rem;
   width: 100%;
   transition: all 0.3s ease;
   outline: none;
@@ -70,29 +68,46 @@ input {
 
 input:focus {
   border-color: var(--gold-radiant);
-  box-shadow: 0 0 10px var(--gold-glow);
+  box-shadow: 0 0 15px var(--gold-glow);
+  background: rgba(255, 255, 255, 0.08);
 }
 
-/* Base Buttons */
+/* Estilización de Botones (Adiós Gigantismo) */
 .btn-gold {
   background: linear-gradient(135deg, var(--gold-radiant), #aa8b2b);
   color: #000;
   font-family: var(--font-primary);
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.9rem 2rem; /* Tamaño normalizado */
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   box-shadow: 0 4px 15px var(--gold-glow);
+  display: inline-block;
+  width: fit-content; /* No ocupa todo el ancho por defecto */
+  margin: 0 auto;
 }
 
 .btn-gold:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+  background: linear-gradient(135deg, var(--gold-hover), var(--gold-radiant));
+}
+
+.outline-btn {
+  background: transparent;
+  border: 1px solid var(--gold-radiant);
+  color: var(--gold-radiant);
+  box-shadow: none;
+}
+
+.outline-btn:hover {
+  background: var(--gold-radiant);
+  color: #000;
 }
 
 .btn-gold:disabled {

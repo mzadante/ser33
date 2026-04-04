@@ -18,6 +18,8 @@
           :results="results" 
           :computedName="formData.computedName"
           @reset="resetForm" 
+          @playAudio="() => playLifeScore(results)"
+          @playFrequency="(hz) => playFrequency(hz)"
         />
         
         <DivineLibrary />
@@ -46,6 +48,12 @@ import {
   calcDestinyNumber 
 } from './composables/useNumerology.js';
 
+import { useNumerologyOmkin } from './composables/useNumerologyOmkin.js';
+import { useAudioSynthesis } from './composables/useAudioSynthesis.js';
+
+const { calculateOmkin } = useNumerologyOmkin();
+const { playFrequency, playLifeScore } = useAudioSynthesis();
+
 const formData = reactive({
   computedName: ''
 });
@@ -58,15 +66,19 @@ const handleCalculation = (data) => {
   // Extraer día, mes y año de la fecha YYYY-MM-DD
   const [year, month, day] = data.birthDate.split('-').map(Number);
   
-  // Realizar cálculos
+  // Realizar cálculos Pitagóricos
   const soul = calcSoulNumber(data.fullName);
   const personality = calcPersonalityNumber(data.fullName);
+  
+  // Realizar cálculos Omkin Kay
+  const omkin = calculateOmkin(data.birthDate);
   
   results.value = {
     lifePath: calcLifePath(day, month, year),
     soulNumber: soul,
     personalityNumber: personality,
-    destinyNumber: calcDestinyNumber(soul, personality)
+    destinyNumber: calcDestinyNumber(soul, personality),
+    omkin: omkin // Añadido sistema Tántrico
   };
 };
 
@@ -94,10 +106,12 @@ const resetForm = () => {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 6rem 1rem 2rem 1rem; /* Pad top para el glass header fijo */
+  padding: 8rem 2rem 4rem 2rem; /* Más espacio lateral y superior */
   position: relative;
   z-index: 2;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .results-view {
@@ -105,23 +119,27 @@ const resetForm = () => {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 3rem; /* Espacio entre el dashboard y la biblioteca */
 }
 
 .app-footer {
   text-align: center;
-  padding: 2rem;
+  padding: 3rem;
   z-index: 2;
   position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .ethics-link {
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.3);
   text-decoration: none;
-  font-size: 0.8rem;
-  transition: color 0.3s;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  transition: all 0.3s;
 }
 
 .ethics-link:hover {
   color: var(--gold-radiant);
+  text-shadow: 0 0 10px var(--gold-glow);
 }
 </style>

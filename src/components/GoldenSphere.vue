@@ -1,6 +1,7 @@
 <template>
   <div class="sphere-container">
     <div ref="sphere" class="golden-sphere">
+      <div class="energy-texture"></div>
       <div class="glow"></div>
       <div class="core"></div>
     </div>
@@ -44,25 +45,31 @@ onMounted(() => {
 }
 
 .golden-sphere {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   position: relative;
-  /* El estilo visual de geometría sagrada */
-  background: radial-gradient(circle at 30% 30%, #ffd700, #d4af37 40%, #8a6a1c 80%, #2f2409 100%);
+  /* El estilo visual de geometría sagrada real */
+  background: url('@/assets/omkin_sphere.png') center/cover no-repeat;
   box-shadow: 
-    0 0 40px rgba(212, 175, 55, 0.4),
-    inset -10px -10px 20px rgba(0,0,0,0.5),
-    inset 10px 10px 20px rgba(255,255,255,0.4);
+    0 0 50px var(--gold-glow),
+    inset 0 0 40px rgba(0,0,0,0.8);
+  filter: drop-shadow(0 0 15px var(--gold-radiant));
 }
 
-.golden-sphere::before {
-  content: "";
+.energy-texture {
   position: absolute;
-  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  top: 0; left: 0; width: 100%; height: 100%;
   border-radius: 50%;
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  animation: pulse-ring 4s infinite alternate;
+  background: url('@/assets/energy_texture.png') center/cover;
+  opacity: 0.25;
+  mix-blend-mode: color-dodge;
+  animation: rotate-slow 60s linear infinite;
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .glow {

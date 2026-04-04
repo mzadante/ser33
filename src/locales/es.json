@@ -22,6 +22,18 @@
     "personalityDesc": "Tu Máscara Social",
     "destiny": "Número de Destino",
     "destinyDesc": "Tu Meta Final",
-    "resetBtn": "Consultar Otra Alma"
+    "resetBtn": "Consultar Otra Alma",
+    "tantricTitle": "Mapa Tántrico Omkin Kay",
+    "tantricDesc": "Tus 5 Factores de Consciencia",
+    "pythagorasTitle": "El Teorema de Pitágoras del Destino",
+    "factors": {
+      "essence": "Esencia",
+      "karma": "Karma / Ego",
+      "gift": "Regalo Divino",
+      "pastLives": "Vidas Pasadas",
+      "mission": "Misión Superior"
+    },
+    "activateAudio": "Activar Frecuencia",
+    "audioInstruction": "Escucha tu Partitura de Vida (Solfeggio 432Hz)"
   }
 }

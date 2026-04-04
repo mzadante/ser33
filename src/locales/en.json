@@ -1,27 +1,39 @@
 {
   "app": {
     "title": "ser",
-    "subtitle": "Manual of Destiny",
+    "subtitle": "Destiny Manual",
     "footerLink": "Transparency and Sources of Truth"
   },
   "form": {
-    "title": "Discover your Energetic Imprint",
+    "title": "Discover your Energy Fingerprint",
     "instruction": "Enter your details as they appear on your birth certificate.",
     "nameLabel": "Full Name",
-    "namePlaceholder": "E.g. Nikola Tesla",
-    "dateLabel": "Date of Birth",
+    "namePlaceholder": "E.g., Nikola Tesla",
+    "dateLabel": "Birth Date",
     "submitBtn": "Start Synchronization"
   },
   "results": {
     "title": "Your Soul Barcode",
     "lifePath": "Life Path",
-    "lifePathDesc": "Your Main Mission",
+    "lifePathDesc": "Your Primary Mission",
     "soul": "Soul Number",
     "soulDesc": "Your Hidden Desires",
     "personality": "Personality",
     "personalityDesc": "Your Social Mask",
     "destiny": "Destiny Number",
     "destinyDesc": "Your Final Goal",
-    "resetBtn": "Consult Another Soul"
+    "resetBtn": "Consult Another Soul",
+    "tantricTitle": "Omkin Kay Tantric Map",
+    "tantricDesc": "Your 5 Consciousness Factors",
+    "pythagorasTitle": "The Pythagoras Theorem of Destiny",
+    "factors": {
+      "essence": "Essence",
+      "karma": "Karma / Ego",
+      "gift": "Divine Gift",
+      "pastLives": "Past Lives",
+      "mission": "Higher Mission"
+    },
+    "activateAudio": "Activate Frequency",
+    "audioInstruction": "Listen to your Life Score (Solfeggio 432Hz)"
   }
 }
