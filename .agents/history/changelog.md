@@ -5,6 +5,16 @@
 
 ---
 
+## 2026-04-03 — Sesión 2: Arquitectura Master UI y Refactorización
+
+- `[feat]` Implementado **Master UI Layout** con arquitectura de micro-componentes: `CosmicBackground`, `GlassHeader`, `DestinyPortal`, `SoulDashboard`, `DivineLibrary`.
+- `[feat]` Integración de animaciones **GSAP** (stagger reveals, parallax, pulse effects) en toda la interfaz.
+- `[feat]` Soporte avanzado de Internacionalización (`vue-i18n`) con persistencia en localStorage.
+- `[fix]` Corregida lógica de `handleCalculation` en `App.vue` para el parseo exacto de fechas (Day/Month/Year).
+- `[fix]` Añadido script `"test": "vitest"` en `package.json` para validación continua de QA.
+- `[docs]` Creado `bugs_and_solutions.md` para documentar la incompatibilidad de Selenium con Chrome 131.
+- `[cleanup]` Eliminación de experimentos fallidos de automatización (NotebookLM MCP) y audio para mantener la estabilidad del núcleo.
+
 ## 2026-04-03 — Sesión 1 (Update): Expansión de Arquitectura
 
 ## 2026-04-03 — Sesión 1 (Implementación Testing & Setup): ser33

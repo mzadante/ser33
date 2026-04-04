@@ -13,19 +13,19 @@
         <span class="value">{{ results.lifePath }}</span>
         <span class="desc">{{ $t('results.lifePathDesc') }}</span>
       </div>
-      
+
       <div class="number-card number-card-anim">
         <span class="label">{{ $t('results.soul') }}</span>
         <span class="value">{{ results.soulNumber }}</span>
         <span class="desc">{{ $t('results.soulDesc') }}</span>
       </div>
-      
+
       <div class="number-card number-card-anim">
         <span class="label">{{ $t('results.personality') }}</span>
         <span class="value">{{ results.personalityNumber }}</span>
         <span class="desc">{{ $t('results.personalityDesc') }}</span>
       </div>
-      
+
       <div class="number-card highlight number-card-anim destiny-card">
         <span class="label">{{ $t('results.destiny') }}</span>
         <span class="value">{{ results.destinyNumber }}</span>
@@ -35,7 +35,7 @@
 
     <!-- Placeholders Funcionales para la Lógica Futura -->
     <div class="future-modules-grid">
-      
+
       <!-- Placeholder: Síntesis de Sonido 432Hz -->
       <div class="module-placeholder audio-module mystic-fadeIn">
         <div class="module-icon">🎵</div>
@@ -53,7 +53,7 @@
         <p>Pendiente: Lógica de Física Rusa</p>
         <div class="grabovoi-mock">318 798</div>
       </div>
-      
+
     </div>
 
     <button @click="resetForm" class="btn-gold outline-btn back-btn mystic-fadeIn">{{ $t('results.resetBtn') }}</button>
@@ -80,7 +80,7 @@ const dashboardRef = ref(null);
 
 onMounted(() => {
   // GSAP: Stagger Reveal para un efecto WoW
-  gsap.fromTo('.mystic-fadeIn', 
+  gsap.fromTo('.mystic-fadeIn',
     { opacity: 0, y: 30 },
     { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: 'power2.out', delay: 0.2 }
   );
@@ -90,7 +90,7 @@ onMounted(() => {
     { opacity: 0, scale: 0.8, rotationX: -15 },
     { opacity: 1, scale: 1, rotationX: 0, duration: 0.8, stagger: 0.15, ease: 'back.out(1.2)', delay: 0.5 }
   );
-  
+
   // Destello extra en la carta de destino
   gsap.to('.destiny-card', {
     boxShadow: '0 0 30px rgba(212, 175, 55, 0.4)',
@@ -151,7 +151,7 @@ const resetForm = () => {
 .module-placeholder {
   background: rgba(10, 10, 15, 0.6);
   backdrop-filter: blur(10px);
-  border: 1px dashed rgba(255,255,255,0.2);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   padding: 2rem;
   text-align: center;
@@ -175,7 +175,7 @@ const resetForm = () => {
 }
 
 .module-placeholder p {
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.9rem;
   margin-bottom: 1.5rem;
 }

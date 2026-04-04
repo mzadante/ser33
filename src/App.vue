@@ -55,12 +55,18 @@ const results = ref(null);
 const handleCalculation = (data) => {
   formData.computedName = data.fullName;
   
+  // Extraer día, mes y año de la fecha YYYY-MM-DD
+  const [year, month, day] = data.birthDate.split('-').map(Number);
+  
   // Realizar cálculos
+  const soul = calcSoulNumber(data.fullName);
+  const personality = calcPersonalityNumber(data.fullName);
+  
   results.value = {
-    lifePath: calcLifePath(data.birthDate),
-    soulNumber: calcSoulNumber(data.fullName),
-    personalityNumber: calcPersonalityNumber(data.fullName),
-    destinyNumber: calcDestinyNumber(data.fullName)
+    lifePath: calcLifePath(day, month, year),
+    soulNumber: soul,
+    personalityNumber: personality,
+    destinyNumber: calcDestinyNumber(soul, personality)
   };
 };
 
