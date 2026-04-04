@@ -1,14 +1,32 @@
 ---
 name: Cálculos Numerológicos - Referencia de implementación
-description: Skill con la lógica exacta de cada algoritmo numerológico, incluyendo tabla pitagórica con Ñ, reducción teosófica, y ejemplos de validación paso a paso.
+description: Skill con la lógica exacta de cada algoritmo numerológico, incluyendo sistemas Pitagórico y Omkin Kay, reducción teosófica y validaciones.
 ---
 
-# 🧮 Skill: Cálculos Numerológicos (Referencia Maestra)
+# 🧮 Skill: Cálculos Numerológicos (Referencia Maestra de Síntesis)
 
 ## Uso
-Este skill contiene la **fuente de verdad** para implementar los algoritmos en `src/composables/useNumerology.js`. Cada función debe seguir exactamente esta lógica.
+Este skill contiene la **fuente de verdad** para implementar los algoritmos en `src/composables/useNumerology.js` y `src/composables/useNumerologyOmkin.js`. Cada función debe seguir exactamente esta lógica para asegurar la "sinceridad" de la plataforma.
 
-## Tabla Pitagórica Completa (Incluye Ñ para español)
+---
+
+## 📐 1. Sistemas de Reducción
+
+### A. Reducción Pitagórica (Base 9)
+- **Uso**: Camino de Vida, Alma, Personalidad, Destino, Tránsitos.
+- **Rango**: 1-9.
+- **Excepciones Maestras**: **11, 22, 33**. NUNCA se reducen.
+- **Lógica**: Suma recursiva de dígitos hasta alcanzar el rango o encontrar un número maestro.
+
+### B. Reducción Omkin Kay / Tántrica (Base 11)
+- **Uso**: Los 5 Factores (Esencia, Karma, Regalo, Vidas Pasadas, Misión).
+- **Rango**: 1-11.
+- **Excepciones**: Ninguna (el 10 y el 11 son números válidos e independientes en este sistema).
+- **Lógica**: Si el número es > 11, se reduce sumando sus dígitos (Ej: 15 = 1+5 = **6** / 29 = 2+9 = **11**).
+
+---
+
+## 🔡 2. Tabla Pitagórica Completa (Incluye Ñ para español)
 
 ```javascript
 const LETTER_VALUES = {
@@ -18,224 +36,59 @@ const LETTER_VALUES = {
 };
 
 const VOWELS = ['A', 'E', 'I', 'O', 'U'];
-const MASTER_NUMBERS = [11, 22, 33];
+const PITAGOREAN_MASTERS = [11, 22, 33];
 ```
 
-## Algoritmo: Reducción Teosófica
+## 🛠️ 3. Implementación de Algoritmos (Base 9 - Pitágora)
 
 ```javascript
 /**
  * Reduce un número a un solo dígito EXCEPTO Números Maestros (11, 22, 33).
- * @param {number} num - Número a reducir
- * @returns {number} - Resultado entre 1-9 o 11, 22, 33
  */
-function reduceToDigit(num) {
+function reduceBase9(num) {
+  const MASTER_NUMBERS = [11, 22, 33];
   while (num > 9 && !MASTER_NUMBERS.includes(num)) {
-    num = String(num)
-      .split('')
-      .reduce((sum, digit) => sum + parseInt(digit, 10), 0);
+    num = String(num).split('').reduce((sum, digit) => sum + parseInt(digit, 10), 0);
   }
   return num;
 }
 ```
 
-### Ejemplo de Validación
-- `reduceToDigit(29)` → 2+9 = **11** → NO se reduce (Maestro) ✅
-- `reduceToDigit(38)` → 3+8 = **11** → NO se reduce ✅
-- `reduceToDigit(47)` → 4+7 = **11** → NO se reduce ✅
-- `reduceToDigit(25)` → 2+5 = **7** ✅
-- `reduceToDigit(33)` → **33** (Maestro) ✅
-- `reduceToDigit(44)` → 4+4 = **8** (44 NO es maestro) ✅
+### Ejemplo de Validación Pitagórica
+- `reduceBase9(29)` → 2+9 = **11** (Maestro) ✅
+- `reduceBase9(33)` → **33** (Maestro) ✅
 
 ---
 
-## Algoritmo: Número de Camino de Vida
+## 🛠️ 4. Implementación de Algoritmos (Base 11 - Omkin Kay)
 
 ```javascript
 /**
- * Calcula el Número de Camino de Vida a partir de la fecha de nacimiento.
- * MÉTODO: Reducir día, mes y año POR SEPARADO, luego sumar.
- * 
- * @param {number} day - Día de nacimiento
- * @param {number} month - Mes de nacimiento
- * @param {number} year - Año de nacimiento
- * @returns {number} - Camino de Vida (1-9, 11, 22, 33)
+ * Reduce un número al rango 1-11 (Omkin Kay).
  */
-function calcLifePath(day, month, year) {
-  const reducedDay = reduceToDigit(day);
-  const reducedMonth = reduceToDigit(month);
-  const reducedYear = reduceToDigit(
-    String(year).split('').reduce((s, d) => s + parseInt(d), 0)
-  );
-  const total = reducedDay + reducedMonth + reducedYear;
-  return reduceToDigit(total);
-}
-```
-
-### Ejemplo Paso a Paso
-**Fecha:** 29 de noviembre de 1990
-1. Día: 29 → 2+9 = **11** (Maestro, no reducir)
-2. Mes: 11 → **11** (Maestro, no reducir)
-3. Año: 1990 → 1+9+9+0 = 19 → 1+9 = **10** → 1+0 = **1**
-4. Total: 11 + 11 + 1 = **23** → 2+3 = **5**
-5. **Camino de Vida: 5**
-
----
-
-## Algoritmo: Número del Alma (Vocales)
-
-```javascript
-/**
- * Calcula el Número del Alma usando SOLO las vocales del nombre legal.
- * Las vocales representan el "aliento y espíritu" — los deseos internos.
- * 
- * @param {string} fullName - Nombre legal completo
- * @returns {{ number: number, vowels: string[], values: number[] }}
- */
-function calcSoulNumber(fullName) {
-  const normalized = fullName.toUpperCase().normalize('NFD')
-    .replace(/[\u0300-\u0302\u0304-\u036f]/g, ''); // Quitar acentos EXCEPTO Ñ
-  
-  const vowels = [];
-  const values = [];
-  
-  for (const char of normalized) {
-    // Restaurar Ñ si fue descompuesta
-    if (VOWELS.includes(char)) {
-      vowels.push(char);
-      values.push(LETTER_VALUES[char]);
-    }
+function reduceBase11(num) {
+  while (num > 11) {
+    num = String(num).split('').reduce((sum, digit) => sum + parseInt(digit, 10), 0);
   }
-  
-  const total = values.reduce((sum, v) => sum + v, 0);
-  return { number: reduceToDigit(total), vowels, values };
+  return num;
 }
 ```
 
-### Ejemplo
-**Nombre:** "María García López"
-- Vocales: A(1), I(9), A(1), A(1), I(9), A(1), O(6), E(5)
-- Suma: 1+9+1+1+9+1+6+5 = **33** 
-- **Número del Alma: 33** (Maestro, no reducir) ✅
+### Ejemplo de Validación Omkin Kay
+- `reduceBase11(29)` → 2+9 = **11** ✅
+- `reduceBase11(15)` → 1+5 = **6** ✅
 
 ---
 
-## Algoritmo: Número de Personalidad (Consonantes)
+## 🧬 5. Funciones de Síntesis Avanzada
 
-```javascript
-/**
- * Calcula el Número de Personalidad usando SOLO las consonantes del nombre.
- * Las consonantes representan la "máscara" — cómo el mundo percibe al individuo.
- * 
- * @param {string} fullName - Nombre legal completo
- * @returns {{ number: number, consonants: string[], values: number[] }}
- */
-function calcPersonalityNumber(fullName) {
-  const normalized = fullName.toUpperCase();
-  const consonants = [];
-  const values = [];
-  
-  for (const char of normalized) {
-    if (LETTER_VALUES[char] && !VOWELS.includes(char)) {
-      consonants.push(char);
-      values.push(LETTER_VALUES[char]);
-    }
-  }
-  
-  const total = values.reduce((sum, v) => sum + v, 0);
-  return { number: reduceToDigit(total), consonants, values };
-}
-```
+### Número de Camino de Vida
+- **Método**: Reducir día, mes y año POR SEPARADO en Base 9, luego sumar y reducir final.
+
+### Vibración Diaria
+- **Fórmula**: (Reducción Base 9 de Día_Nac + Mes_Nac) + (Día_Actual + Mes_Actual + Año_Actual).
 
 ---
 
-## Algoritmo: Número de Destino
-
-```javascript
-/**
- * Síntesis total: Alma + Personalidad.
- * 
- * @param {number} soulNumber - Número del Alma
- * @param {number} personalityNumber - Número de Personalidad
- * @returns {number}
- */
-function calcDestinyNumber(soulNumber, personalityNumber) {
-  return reduceToDigit(soulNumber + personalityNumber);
-}
-```
-
----
-
-## Algoritmo: Día Personal
-
-```javascript
-/**
- * Calcula la vibración del día actual para el usuario.
- * 
- * @param {number} birthDay - Día de nacimiento
- * @param {number} birthMonth - Mes de nacimiento
- * @param {Date} today - Fecha actual
- * @returns {number} - Vibración del día (1-9)
- */
-function calcPersonalDay(birthDay, birthMonth, today = new Date()) {
-  const currentDay = today.getDate();
-  const currentMonth = today.getMonth() + 1;
-  const currentYear = today.getFullYear();
-  
-  const total = birthDay + birthMonth + currentDay + currentMonth + currentYear;
-  return reduceToDigit(total);
-}
-```
-
----
-
-## Algoritmo: Año Personal
-
-```javascript
-/**
- * Calcula en qué posición del ciclo de 9 años está el usuario.
- * Contexto 2026: Año Universal 1 (inicio de nueva era).
- * 
- * @param {number} birthDay - Día de nacimiento
- * @param {number} birthMonth - Mes de nacimiento
- * @param {number} currentYear - Año actual (default: 2026)
- * @returns {number} - Año Personal (1-9, 11, 22)
- */
-function calcPersonalYear(birthDay, birthMonth, currentYear = 2026) {
-  const yearDigits = String(currentYear).split('').reduce((s, d) => s + parseInt(d), 0);
-  const total = reduceToDigit(birthDay) + reduceToDigit(birthMonth) + reduceToDigit(yearDigits);
-  return reduceToDigit(total);
-}
-```
-
----
-
-## Algoritmo: Teorema de Pitágoras (Etapas de Vida)
-
-```javascript
-/**
- * Divide la vida en 3 grandes etapas representadas como cuadrados
- * que forman un triángulo divino.
- * 
- * @param {number} currentAge - Edad actual del usuario
- * @returns {{ stage: number, stages: object[], currentStage: object }}
- */
-function calcPythagorasStages(currentAge) {
-  const stages = [
-    { id: 1, name: 'Formación', from: 0, to: 27, element: 'Fuego/Tierra',
-      description: 'Período de aprendizaje, formación de identidad y raíces.' },
-    { id: 2, name: 'Producción', from: 27, to: 54, element: 'Aire/Agua',
-      description: 'Período de creación, construcción profesional y madurez.' },
-    { id: 3, name: 'Cosecha', from: 54, to: 81, element: 'Oro/Espíritu',
-      description: 'Período de sabiduría, legado y trascendencia espiritual.' }
-  ];
-  
-  const currentStage = stages.find(s => currentAge >= s.from && currentAge < s.to) || stages[2];
-  return { stage: currentStage.id, stages, currentStage };
-}
-```
-
-## ⚠️ Nota Crítica de las Fuentes
-> "Las herramientas de IA generativa suelen cometer errores en sumas complejas de letras a números. El equipo de desarrollo debe **verificar manualmente** las reducciones de nombres."
-
-**Tests unitarios son OBLIGATORIOS** para cada función con al menos 5 casos de prueba verificados manualmente.
+## ⚠️ Nota de Sinceridad
+> "Las herramientas de IA generativa suelen cometer errores en sumas complejas de letras a números. Se requiere verificación manual o tests unitarios estrictos."
