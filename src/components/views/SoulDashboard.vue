@@ -4,6 +4,13 @@
     <div class="dashboard-header glass-panel mystic-fadeIn">
       <h2>{{ $t('results.title') }}</h2>
       <p class="subtitle">{{ computedName }}</p>
+      
+      <div class="header-actions">
+        <button class="btn-gold download-btn" @click="handleDownload">
+          <IconBase :size="16" /> {{ $t('results.downloadBtn') }}
+        </button>
+      </div>
+
       <p class="header-value">Cada número es una frecuencia vibratoria que revela un aspecto de tu alma. Haz clic en cualquier número para descubrir su significado profundo.</p>
     </div>
 
@@ -190,7 +197,10 @@ import { interpretations } from '../../data/interpretations.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
-import { IconArrowRight, IconExpand, IconCollapse, IconSolfeggio } from '../icons';
+import { IconArrowRight, IconExpand, IconCollapse, IconSolfeggio, IconBase } from '../icons';
+import { usePdfGenerator } from '../../composables/usePdfGenerator.js';
+
+const { generateManual } = usePdfGenerator();
 
 const props = defineProps({
   results: {
@@ -226,6 +236,17 @@ const handleFreqClick = (hz) => {
   activeFreq.value = hz;
   emit('playFrequency', hz);
   setTimeout(() => { activeFreq.value = null; }, 3000);
+};
+
+const isGenerating = ref(false);
+const handleDownload = async () => {
+  if (isGenerating.value) return;
+  isGenerating.value = true;
+  try {
+    await generateManual(props.results, props.computedName);
+  } finally {
+    isGenerating.value = false;
+  }
 };
 
 const selectedKey = ref(null);
@@ -322,6 +343,32 @@ const resetForm = () => {
 .dashboard-header {
   text-align: center;
   margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-actions {
+  margin: 1rem 0;
+}
+
+.download-btn {
+  padding: 0.8rem 1.5rem !important;
+  font-size: 0.9rem !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--gold-radiant), #fff) !important;
+  color: #000 !important;
+  font-weight: 700 !important;
+  border: none !important;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.download-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
 }
 
 /* Grilla de Números Principales */
