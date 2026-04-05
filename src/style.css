@@ -117,3 +117,37 @@ input:focus {
   cursor: not-allowed;
   transform: none;
 }
+
+/* ═══════════════════════════════════════════════
+   Sacred Icon System — Geometría Sagrada
+   ═══════════════════════════════════════════════ */
+.sacred-icon {
+  color: var(--gold-radiant);
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 2px var(--gold-glow));
+  flex-shrink: 0;
+}
+
+.sacred-icon:hover {
+  filter: drop-shadow(0 0 8px var(--gold-glow));
+  color: var(--gold-hover);
+}
+
+.sacred-icon--animated {
+  animation: sacred-pulse 3s ease-in-out infinite;
+}
+
+.sacred-icon--glow {
+  filter: drop-shadow(0 0 6px var(--gold-glow));
+}
+
+@keyframes sacred-pulse {
+  0%, 100% { filter: drop-shadow(0 0 2px var(--gold-glow)); }
+  50% { filter: drop-shadow(0 0 12px var(--gold-glow)); }
+}
+
+.inline-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.2em;
+}

@@ -4,7 +4,7 @@
     <section class="hero-section">
       <span class="watermark-number">{{ number }}</span>
       <div class="hero-content" ref="heroContent">
-        <span class="hero-tag" v-if="data.isMaster">✦ NÚMERO MAESTRO ✦</span>
+        <span class="hero-tag" v-if="data.isMaster"><IconMasterStar :size="14" class="inline-icon" /> NÚMERO MAESTRO <IconMasterStar :size="14" class="inline-icon" /></span>
         <h1 class="hero-keyword">{{ data.keyword }}</h1>
         <p class="hero-essence">{{ data.essence }}</p>
         <div class="hero-meta">
@@ -20,7 +20,7 @@
       </div>
       <div class="scroll-indicator">
         <span class="scroll-text">Descubre tu vibración</span>
-        <span class="scroll-arrow">↓</span>
+        <span class="scroll-arrow"><IconScrollDown :size="28" :animated="true" /></span>
       </div>
     </section>
 
@@ -38,7 +38,7 @@
     <!-- Interpretación Profunda: Luz -->
     <section class="interpretation-section reveal-block">
       <div class="interp-card light-card">
-        <div class="interp-icon">☀️</div>
+        <div class="interp-icon"><IconSunLight :size="32" :glow="true" /></div>
         <h3>Vibración en Luz</h3>
         <p>{{ data.light }}</p>
       </div>
@@ -47,7 +47,7 @@
     <!-- Interpretación Profunda: Sombra -->
     <section class="interpretation-section reveal-block">
       <div class="interp-card shadow-card">
-        <div class="interp-icon">🌑</div>
+        <div class="interp-icon"><IconMoonShadow :size="32" :glow="true" /></div>
         <h3>Vibración en Sombra</h3>
         <p>{{ data.shadow }}</p>
       </div>
@@ -56,7 +56,7 @@
     <!-- Tarea Evolutiva -->
     <section class="interpretation-section reveal-block">
       <div class="interp-card mission-card">
-        <div class="interp-icon">🎯</div>
+        <div class="interp-icon"><IconTargetMission :size="32" :glow="true" /></div>
         <h3>Tu Tarea Evolutiva</h3>
         <p>{{ data.mission }}</p>
       </div>
@@ -87,7 +87,7 @@
     <!-- Responsabilidad Maestra -->
     <section class="master-section reveal-block" v-if="data.isMaster">
       <div class="master-box">
-        <h3>⚡ Responsabilidad del Número Maestro</h3>
+        <h3><IconLightning :size="20" class="inline-icon" /> Responsabilidad del Número Maestro</h3>
         <p>{{ data.responsibility }}</p>
       </div>
     </section>
@@ -105,6 +105,7 @@
 import { onMounted, ref, computed } from 'vue';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { IconSunLight, IconMoonShadow, IconTargetMission, IconLightning, IconMasterStar, IconScrollDown } from '../icons';
 
 gsap.registerPlugin(ScrollTrigger);
 

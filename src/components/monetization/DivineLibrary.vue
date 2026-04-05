@@ -11,7 +11,7 @@
       <!-- Mock Book 1 -->
       <div class="book-card-mockup">
         <div class="book-cover type-kybalion">
-          <span class="symbol">☿</span>
+          <IconMercury :size="64" />
         </div>
         <div class="book-info">
           <h4>El Kybalión</h4>
@@ -23,7 +23,7 @@
       <!-- Mock Book 2 -->
       <div class="book-card-mockup">
         <div class="book-cover type-grabovoi">
-          <span class="symbol">∞</span>
+          <IconInfinity :size="64" />
         </div>
         <div class="book-info">
           <h4>Concentración</h4>
@@ -35,7 +35,7 @@
       <!-- Mock Book 3 -->
       <div class="book-card-mockup">
         <div class="book-cover type-numerology">
-          <span class="symbol">33</span>
+          <IconSer33Logo :size="64" />
         </div>
         <div class="book-info">
           <h4>Números Sagrados</h4>
@@ -51,6 +51,7 @@
 <script setup>
 import { onMounted } from 'vue';
 import gsap from 'gsap';
+import { IconMercury, IconInfinity, IconSer33Logo } from '../icons';
 
 onMounted(() => {
   gsap.fromTo('.book-card-mockup',

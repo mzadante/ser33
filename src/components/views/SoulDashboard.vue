@@ -13,28 +13,28 @@
         <span class="label">{{ $t('results.lifePath') }}</span>
         <span class="value">{{ results.lifePath }}</span>
         <span class="keyword">{{ getKeyword(results.lifePath) }}</span>
-        <span class="cta">Ver interpretación →</span>
+        <span class="cta">Ver interpretación <IconArrowRight :size="12" class="inline-icon" /></span>
       </div>
 
       <div class="number-card number-card-anim clickable" @click="emitViewNumber(results.soulNumber, 'soul', $t('results.soul'), $t('results.soulDesc'))">
         <span class="label">{{ $t('results.soul') }}</span>
         <span class="value">{{ results.soulNumber }}</span>
         <span class="keyword">{{ getKeyword(results.soulNumber) }}</span>
-        <span class="cta">Ver interpretación →</span>
+        <span class="cta">Ver interpretación <IconArrowRight :size="12" class="inline-icon" /></span>
       </div>
 
       <div class="number-card number-card-anim clickable" @click="emitViewNumber(results.personalityNumber, 'personality', $t('results.personality'), $t('results.personalityDesc'))">
         <span class="label">{{ $t('results.personality') }}</span>
         <span class="value">{{ results.personalityNumber }}</span>
         <span class="keyword">{{ getKeyword(results.personalityNumber) }}</span>
-        <span class="cta">Ver interpretación →</span>
+        <span class="cta">Ver interpretación <IconArrowRight :size="12" class="inline-icon" /></span>
       </div>
 
       <div class="number-card highlight number-card-anim destiny-card clickable" @click="emitViewNumber(results.destinyNumber, 'destiny', $t('results.destiny'), $t('results.destinyDesc'))">
         <span class="label">{{ $t('results.destiny') }}</span>
         <span class="value">{{ results.destinyNumber }}</span>
         <span class="keyword">{{ getKeyword(results.destinyNumber) }}</span>
-        <span class="cta">Ver interpretación →</span>
+        <span class="cta">Ver interpretación <IconArrowRight :size="12" class="inline-icon" /></span>
       </div>
     </div>
 
@@ -65,7 +65,10 @@
               <span class="factor-label">{{ $t(`results.factors.${key}`) }}</span>
               <span class="factor-value">{{ factor }}</span>
             </div>
-            <span class="click-hint">{{ selectedKey === key ? '−' : '+' }}</span>
+            <span class="click-hint">
+              <IconCollapse v-if="selectedKey === key" :size="16" />
+              <IconExpand v-else :size="16" />
+            </span>
           </div>
         </div>
       </div>
@@ -142,7 +145,7 @@
       <!-- Módulo: Resonancia Solfeggio -->
       <div class="module-placeholder audio-module mystic-fadeIn">
         <div class="module-icon">
-          <img src="@/assets/solfeggio_icon.png" alt="Solfeggio Icon" class="solfeggio-icon-img" />
+          <IconSolfeggio :size="60" :animated="true" />
         </div>
         <h3>Frecuencia Solfeggio</h3>
         <p>{{ $t('results.audioInstruction') }}</p>
@@ -186,6 +189,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { interpretations } from '../../data/interpretations.js';
 
 gsap.registerPlugin(ScrollTrigger);
+
+import { IconArrowRight, IconExpand, IconCollapse, IconSolfeggio } from '../icons';
 
 const props = defineProps({
   results: {
