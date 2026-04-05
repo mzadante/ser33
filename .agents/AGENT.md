@@ -51,24 +51,31 @@ Este proyecto NO es una calculadora numérica. Es una **"tecnología de concienc
 
 **OBLIGATORIO al iniciar cada sesión de trabajo:**
 
-1. Leer el archivo `.agents/history/project_status.md` para conocer el estado actual
-2. Leer `.agents/history/changelog.md` para ver los últimos cambios
-3. Leer `.agents/history/bugs_and_solutions.md` para conocer problemas conocidos
-4. Identificar la fase actual del proyecto según el historial
-5. Informar al usuario del estado y proponer los siguientes pasos
+1.  Leer el archivo `.agents/history/project_status.md` para conocer el estado actual.
+2.  Leer `.agents/history/changelog.md` para ver los últimos cambios.
+3.  Leer `.agents/history/bugs_and_solutions.md` para conocer problemas conocidos.
+4.  Leer `.agents/history/session_lessons.md` para recuperar aprendizajes y errores pasados.
+5.  Identificar la fase actual del proyecto según el historial.
+6.  Informar al usuario del estado y proponer los siguientes pasos.
+
+## Protocolo de Actualización de Progreso (Sync)
+
+**OBLIGATORIO tras cada avance significativo o tarea completada:**
+
+1.  **Commit de Git**: `git add .` seguido de `git commit -m "[tipo] descripción breve"`.
+2.  **Sincronización Notion**: Ejecutar `node scripts/sync-notion.js` para persistir el avance en la nube.
+3.  Informar al usuario del registro realizado.
 
 ## Protocolo de Fin de Sesión
 
 **OBLIGATORIO antes de finalizar cada sesión:**
 
-1. Actualizar `.agents/history/project_status.md` con:
-   - Qué se completó en esta sesión
-   - Qué queda pendiente
-   - Fase actual del proyecto
-   - Próximos pasos recomendados
-2. Actualizar `.agents/history/changelog.md` con cada cambio realizado
-3. Si hubo bugs, documentarlos en `.agents/history/bugs_and_solutions.md`
-4. Confirmar con el usuario que el resumen es correcto
+1.  Actualizar `.agents/history/project_status.md` (fecha, fase, avance, pendientes).
+2.  Actualizar `.agents/history/changelog.md` con los cambios de la sesión.
+3.  Documentar bugs en `.agents/history/bugs_and_solutions.md` si aplica.
+4.  **Actualizar Log de Lecciones**: Anexar a `.agents/history/session_lessons.md` la sección de **"Aprendido, Creado y Fallido"** de la sesión actual.
+5.  **Sync Final**: Realizar el commit final y sincronizar con Notion.
+6.  Confirmar con el usuario que el resumen es correcto.
 
 ## Delegación a Subagentes
 
