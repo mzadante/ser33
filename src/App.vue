@@ -35,6 +35,11 @@
           @playFrequency="(hz) => playFrequency(hz)"
           @viewNumber="openNumberDetail"
         />
+
+        <GematriaSection 
+          v-if="results.gematria" 
+          :data="results.gematria" 
+        />
         
         <DivineLibrary />
       </div>
@@ -64,10 +69,13 @@ import {
 } from './composables/useNumerology.js';
 
 import { useNumerologyOmkin } from './composables/useNumerologyOmkin.js';
+import { useGematria } from './composables/useGematria.js';
 import { useAudioSynthesis } from './composables/useAudioSynthesis.js';
 import { interpretations } from './data/interpretations.js';
+import GematriaSection from './components/views/GematriaSection.vue';
 
 const { calculateOmkin } = useNumerologyOmkin();
+const { getGematriaReport } = useGematria();
 const { playFrequency, playLifeScore } = useAudioSynthesis();
 
 const formData = reactive({
@@ -91,7 +99,8 @@ const handleCalculation = (data) => {
     soulNumber: soul,
     personalityNumber: personality,
     destinyNumber: calcDestinyNumber(soul, personality),
-    omkin: omkin
+    omkin: omkin,
+    gematria: getGematriaReport(data.fullName)
   };
 };
 

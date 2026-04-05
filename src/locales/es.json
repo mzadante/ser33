@@ -34,6 +34,16 @@
       "mission": "Misión Superior"
     },
     "activateAudio": "Activar Frecuencia",
-    "audioInstruction": "Escucha tu Partitura de Vida (Solfeggio 432Hz)"
+    "audioInstruction": "Escucha tu Partitura de Vida (Solfeggio 432Hz)",
+    "gematria": {
+      "title": "Gematría Sagrada: El Código del Nombre",
+      "subtitle": "Decodificación numérica avanzada (Caldea, Hebrea y Simple)",
+      "chaldean": "Vibración Caldea",
+      "chaldeanDesc": "Frecuencias Antiguas de Babilonia",
+      "simple": "Gematría Simple",
+      "simpleDesc": "El Valor del Lenguaje (A=1...Z=26)",
+      "hebrew": "Código Hebreo",
+      "hebrewDesc": "Sintonía con el Áleph-Bet Sagrado"
+    }
   }
 }

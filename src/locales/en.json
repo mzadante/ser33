@@ -34,6 +34,16 @@
       "mission": "Higher Mission"
     },
     "activateAudio": "Activate Frequency",
-    "audioInstruction": "Listen to your Life Score (Solfeggio 432Hz)"
+    "audioInstruction": "Listen to your Life Score (Solfeggio 432Hz)",
+    "gematria": {
+      "title": "Sacred Gematria: The Name Code",
+      "subtitle": "Advanced numerical decoding (Chaldean, Hebrew, and Simple)",
+      "chaldean": "Chaldean Vibration",
+      "chaldeanDesc": "Ancient Babylonian Frequencies",
+      "simple": "Simple Gematria",
+      "simpleDesc": "The Value of Language (A=1...Z=26)",
+      "hebrew": "Hebrew Code",
+      "hebrewDesc": "Tuned to the Sacred Aleph-Bet"
+    }
   }
 }
