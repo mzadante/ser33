@@ -4,32 +4,37 @@
     <div class="dashboard-header glass-panel mystic-fadeIn">
       <h2>{{ $t('results.title') }}</h2>
       <p class="subtitle">{{ computedName }}</p>
+      <p class="header-value">Cada número es una frecuencia vibratoria que revela un aspecto de tu alma. Haz clic en cualquier número para descubrir su significado profundo.</p>
     </div>
 
     <!-- Zona Central: Números de Destino -->
     <div class="numerology-grid">
-      <div class="number-card number-card-anim">
+      <div class="number-card number-card-anim clickable" @click="emitViewNumber(results.lifePath, 'lifePath', $t('results.lifePath'), $t('results.lifePathDesc'))">
         <span class="label">{{ $t('results.lifePath') }}</span>
         <span class="value">{{ results.lifePath }}</span>
-        <span class="desc">{{ $t('results.lifePathDesc') }}</span>
+        <span class="keyword">{{ getKeyword(results.lifePath) }}</span>
+        <span class="cta">Ver interpretación →</span>
       </div>
 
-      <div class="number-card number-card-anim">
+      <div class="number-card number-card-anim clickable" @click="emitViewNumber(results.soulNumber, 'soul', $t('results.soul'), $t('results.soulDesc'))">
         <span class="label">{{ $t('results.soul') }}</span>
         <span class="value">{{ results.soulNumber }}</span>
-        <span class="desc">{{ $t('results.soulDesc') }}</span>
+        <span class="keyword">{{ getKeyword(results.soulNumber) }}</span>
+        <span class="cta">Ver interpretación →</span>
       </div>
 
-      <div class="number-card number-card-anim">
+      <div class="number-card number-card-anim clickable" @click="emitViewNumber(results.personalityNumber, 'personality', $t('results.personality'), $t('results.personalityDesc'))">
         <span class="label">{{ $t('results.personality') }}</span>
         <span class="value">{{ results.personalityNumber }}</span>
-        <span class="desc">{{ $t('results.personalityDesc') }}</span>
+        <span class="keyword">{{ getKeyword(results.personalityNumber) }}</span>
+        <span class="cta">Ver interpretación →</span>
       </div>
 
-      <div class="number-card highlight number-card-anim destiny-card">
+      <div class="number-card highlight number-card-anim destiny-card clickable" @click="emitViewNumber(results.destinyNumber, 'destiny', $t('results.destiny'), $t('results.destinyDesc'))">
         <span class="label">{{ $t('results.destiny') }}</span>
         <span class="value">{{ results.destinyNumber }}</span>
-        <span class="desc">{{ $t('results.destinyDesc') }}</span>
+        <span class="keyword">{{ getKeyword(results.destinyNumber) }}</span>
+        <span class="cta">Ver interpretación →</span>
       </div>
     </div>
 
@@ -177,7 +182,10 @@
 <script setup>
 import { onMounted, ref, computed } from 'vue';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { interpretations } from '../../data/interpretations.js';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const props = defineProps({
   results: {
@@ -190,14 +198,24 @@ const props = defineProps({
   }
 });
 
-const emit = defineEmits(['reset', 'playAudio', 'playFrequency']);
+const emit = defineEmits(['reset', 'playAudio', 'playFrequency', 'viewNumber']);
 const dashboardRef = ref(null);
 
+import { GRABOVOI_SEQUENCES } from '../../data/grabovoiCatalog.js';
+
 const activeFreq = ref(null);
-const activationCodes = [
-  { title: 'Abundancia Universal', digits: '5 2 0', hz: 528 },
-  { title: 'Salud Perfecta', digits: '1 8 9 9 9 9 9', hz: 417 }
-];
+const activationCodes = Object.values(GRABOVOI_SEQUENCES).map(s => ({
+  title: s.name, digits: s.code, hz: s.hz, desc: s.description, mode: s.mode
+}));
+
+const getKeyword = (num) => {
+  const data = interpretations.es.numbers[num];
+  return data ? data.keyword : '';
+};
+
+const emitViewNumber = (value, context, contextLabel, contextDescription) => {
+  emit('viewNumber', { value, context, contextLabel, contextDescription });
+};
 
 const handleFreqClick = (hz) => {
   activeFreq.value = hz;
@@ -240,22 +258,37 @@ const getStageImage = () => {
 };
 
 onMounted(() => {
-  // GSAP: Stagger Reveal
-  gsap.fromTo('.mystic-fadeIn',
+  initAnimations();
+});
+
+const initAnimations = () => {
+  // GSAP: Stagger Reveal para las tarjetas (visible inmediatamente)
+  gsap.fromTo('.number-card-anim',
     { opacity: 0, y: 30 },
-    { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: 'power2.out', delay: 0.2 }
+    { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power2.out', delay: 0.2 }
   );
 
-  // Animación de los factores Omkin
-  gsap.from('.factor-item', {
-    opacity: 0,
-    x: -20,
-    duration: 0.6,
-    stagger: 0.1,
-    ease: 'power2.out',
-    delay: 1
+  // Secciones glass-panel: scroll-triggered
+  gsap.utils.toArray('.glass-panel.mystic-fadeIn').forEach(panel => {
+    gsap.fromTo(panel,
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+        scrollTrigger: { trigger: panel, start: 'top 90%', toggleActions: 'play none none none' }
+      }
+    );
   });
-});
+
+  // Factor items: animación cuando entran al viewport  
+  const factorItems = gsap.utils.toArray('.factor-item');
+  if (factorItems.length > 0) {
+    gsap.fromTo(factorItems,
+      { opacity: 0, x: -20 },
+      { opacity: 1, x: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out',
+        scrollTrigger: { trigger: '.factors-grid', start: 'top 90%', toggleActions: 'play none none none' }
+      }
+    );
+  }
+};
 
 const resetForm = () => {
   // Animación de salida antes de resetear
@@ -330,6 +363,44 @@ const resetForm = () => {
   color: var(--text-main);
 }
 
+.number-card.clickable {
+  cursor: pointer;
+}
+
+.number-card.clickable:hover {
+  border-color: var(--gold-radiant);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15), 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+.number-card .keyword {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  font-style: italic;
+}
+
+.number-card .cta {
+  font-size: 0.7rem;
+  color: var(--gold-radiant);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  margin-top: 0.5rem;
+}
+
+.number-card:hover .cta {
+  opacity: 1;
+}
+
+.header-value {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  max-width: 500px;
+  margin: 0.8rem auto 0;
+  line-height: 1.5;
+}
+
 .number-card.highlight {
   border: 1px solid var(--gold-radiant);
   background: rgba(212, 175, 55, 0.05);
@@ -358,8 +429,16 @@ const resetForm = () => {
 /* Omkin Section */
 .tantric-layout {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .tantric-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
 
 .pentagon-visual-container {
@@ -382,6 +461,33 @@ const resetForm = () => {
   flex-direction: column;
   gap: 0.8rem;
   flex: 1;
+  min-width: 280px;
+  width: 100%;
+}
+
+.factor-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+}
+
+.factor-value {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  color: var(--gold-radiant);
+}
+
+.factor-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.click-hint {
+  font-size: 1.2rem;
+  color: var(--gold-radiant);
+  opacity: 0.5;
 }
 
 /* Pythagoras Section Refinada */

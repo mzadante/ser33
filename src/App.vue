@@ -4,15 +4,28 @@
     <GlassHeader />
 
     <main class="main-content">
-      <!-- Orbe dorado de fondo central si no estamos en resultados -->
+      <!-- Orbe dorado si no estamos en resultados -->
       <GoldenSphere v-if="!results" />
 
-      <!-- Vistas dinámicas -->
+      <!-- Vista: Portal de Entrada -->
       <DestinyPortal 
-        v-if="!results" 
+        v-if="!results && !selectedNumber" 
         @calculate="handleCalculation" 
       />
 
+      <!-- Vista: Detalle de Número (GTA VI Style) -->
+      <NumberDetail
+        v-else-if="selectedNumber"
+        :number="selectedNumber.value"
+        :data="selectedNumber.data"
+        :context="selectedNumber.context"
+        :contextLabel="selectedNumber.contextLabel"
+        :contextDescription="selectedNumber.contextDescription"
+        @back="closeNumberDetail"
+        @playFrequency="(hz) => playFrequency(hz)"
+      />
+
+      <!-- Vista: Dashboard de Resultados -->
       <div v-else class="results-view">
         <SoulDashboard 
           :results="results" 
@@ -20,6 +33,7 @@
           @reset="resetForm" 
           @playAudio="() => playLifeScore(results)"
           @playFrequency="(hz) => playFrequency(hz)"
+          @viewNumber="openNumberDetail"
         />
         
         <DivineLibrary />
@@ -39,6 +53,7 @@ import GlassHeader from './components/ui/GlassHeader.vue';
 import GoldenSphere from './components/GoldenSphere.vue';
 import DestinyPortal from './components/views/DestinyPortal.vue';
 import SoulDashboard from './components/views/SoulDashboard.vue';
+import NumberDetail from './components/views/NumberDetail.vue';
 import DivineLibrary from './components/monetization/DivineLibrary.vue';
 
 import { 
@@ -50,6 +65,7 @@ import {
 
 import { useNumerologyOmkin } from './composables/useNumerologyOmkin.js';
 import { useAudioSynthesis } from './composables/useAudioSynthesis.js';
+import { interpretations } from './data/interpretations.js';
 
 const { calculateOmkin } = useNumerologyOmkin();
 const { playFrequency, playLifeScore } = useAudioSynthesis();
@@ -59,18 +75,15 @@ const formData = reactive({
 });
 
 const results = ref(null);
+const selectedNumber = ref(null);
 
 const handleCalculation = (data) => {
   formData.computedName = data.fullName;
   
-  // Extraer día, mes y año de la fecha YYYY-MM-DD
   const [year, month, day] = data.birthDate.split('-').map(Number);
   
-  // Realizar cálculos Pitagóricos
   const soul = calcSoulNumber(data.fullName);
   const personality = calcPersonalityNumber(data.fullName);
-  
-  // Realizar cálculos Omkin Kay
   const omkin = calculateOmkin(data.birthDate);
   
   results.value = {
@@ -78,18 +91,38 @@ const handleCalculation = (data) => {
     soulNumber: soul,
     personalityNumber: personality,
     destinyNumber: calcDestinyNumber(soul, personality),
-    omkin: omkin // Añadido sistema Tántrico
+    omkin: omkin
   };
+};
+
+const openNumberDetail = ({ value, context, contextLabel, contextDescription }) => {
+  const numData = interpretations.es.numbers[value];
+  if (!numData) return;
+  
+  selectedNumber.value = {
+    value,
+    data: numData,
+    context,
+    contextLabel,
+    contextDescription
+  };
+
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+const closeNumberDetail = () => {
+  selectedNumber.value = null;
 };
 
 const resetForm = () => {
   results.value = null;
+  selectedNumber.value = null;
   formData.computedName = '';
 };
 </script>
 
 <style>
-/* Estilos globales y reseteos para la estructura fluida */
 .cosmic-layout {
   min-height: 100vh;
   display: flex;
@@ -106,7 +139,7 @@ const resetForm = () => {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 8rem 2rem 4rem 2rem; /* Más espacio lateral y superior */
+  padding: 8rem 2rem 4rem 2rem;
   position: relative;
   z-index: 2;
   width: 100%;
@@ -119,7 +152,7 @@ const resetForm = () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem; /* Espacio entre el dashboard y la biblioteca */
+  gap: 3rem;
 }
 
 .app-footer {

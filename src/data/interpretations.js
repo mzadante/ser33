@@ -1,7 +1,8 @@
 /**
  * Diccionario de Interpretaciones Profundas - Manual del Destino (ser33)
  * Redactado por: Guionista de la Consciencia
- * Fuentes de Verdad: Mi Numerología (#1), Pitagórica (#4 y #6), Omkin Kay (#9)
+ * Fuentes: Mi Numerología (#1), Pitagórica (#4, #6), Omkin Kay (#9),
+ *          Deluxe Report (#11), Gematría Hebrea (#10), Simbología (#7)
  */
 
 export const interpretations = {
@@ -9,69 +10,204 @@ export const interpretations = {
     numbers: {
       1: {
         keyword: "Bondad / Inicio",
+        essence: "El Líder / El Pionero",
+        keywords: ["Inicio", "Independencia", "Innovación", "Voluntad"],
+        geometry: "Punto luminoso",
+        element: "Fuego",
+        vibration: "Creación pura, origen de todo",
+        arcana: "El Mago",
         light: "Humildad, creatividad auténtica, dinamismo corporal y mando suave. Son iniciadores natos, amigos leales y protectores. Representan la unidad y la fuerza de voluntad pura.",
         shadow: "Vanidad, orgullo, parálisis ante decisiones, tendencias depresivas y lentitud. Pueden volverse dominantes o dejarse manipular fácilmente por falta de autoverificación.",
-        mission: "Aprender a tomar la iniciativa desde el corazón, ser 'humildes y mansos', y transformar la inactividad en acción constructiva."
+        mission: "Aprender a tomar la iniciativa desde el corazón, ser 'humildes y mansos', y transformar la inactividad en acción constructiva.",
+        lifePathDesc: "Tu misión es liderar y abrir caminos nuevos. Eres un iniciador nato con el poder de crear realidades desde cero.",
+        dayDesc: "Día ideal para iniciar proyectos, tomar decisiones y actuar con determinación.",
+        yearDesc: "Año de nuevos comienzos. Siembra las semillas de los próximos 9 años."
       },
       2: {
         keyword: "Obediencia / Dualidad",
+        essence: "El Diplomático / El Cooperador",
+        keywords: ["Dualidad", "Cooperación", "Sensibilidad", "Equilibrio"],
+        geometry: "Línea (conexión entre dos puntos)",
+        element: "Agua",
+        vibration: "Receptividad, alianzas y dualidad",
+        arcana: "La Sacerdotisa",
         light: "Diplomacia, tacto, capacidad de mediación y amor por la paz. Son excelentes confidentes, sabios y amantes de la armonía familiar. El discípulo por excelencia.",
         shadow: "Influenciables, indecisos, miedo a lo desconocido, celos y posesividad. Pueden caer en la desobediencia espiritual o en la dependencia emocional extrema.",
-        mission: "Colaborar con los demás sin perder la individualidad. Trascender la emocionalidad y asociarse desde la libertad interna."
+        mission: "Colaborar con los demás sin perder la individualidad. Trascender la emocionalidad y asociarse desde la libertad interna.",
+        lifePathDesc: "Tu misión es mediar, cooperar y encontrar el equilibrio en las relaciones. Eres el puente entre mundos.",
+        dayDesc: "Día para la diplomacia, colaboración y fortalecer vínculos.",
+        yearDesc: "Año de paciencia. Las semillas necesitan tiempo para germinar."
       },
       3: {
         keyword: "Positividad / Expresión",
+        essence: "El Creador / La Trinidad",
+        keywords: ["Expresión", "Creatividad", "Alegría", "Comunicación"],
+        geometry: "Triángulo (Divina Trinidad)",
+        element: "Fuego / Aire",
+        vibration: "Manifestación creativa, el poder del 3-6-9 de Tesla",
+        arcana: "La Emperatriz",
         light: "Alegría expansiva, magnetismo, el 'imán del dinero' y la comunicación brillante. Son seres afortunados, buscadores de la verdad y amantes de la naturaleza.",
         shadow: "Pesimismo extremo (papel de víctima), mentira, dispersión, extravagancia y soberbia. Pueden volverse 'aguafiestas' o manipuladores por complejo de inferioridad.",
-        mission: "Alcanzar la positividad en todos los renglones de la vida. Desarrollar la confianza propia y la capacidad artística sin juicios."
+        mission: "Alcanzar la positividad en todos los renglones de la vida. Desarrollar la confianza propia y la capacidad artística sin juicios.",
+        lifePathDesc: "Tu misión es crear, comunicar y expresar tu visión al mundo. Tu palabra tiene poder de manifestación.",
+        dayDesc: "Día para expresarte, crear contenido, socializar y comunicar ideas.",
+        yearDesc: "Año de expansión creativa. Tu voz se amplifica."
       },
       4: {
         keyword: "Inteligencia / Estructura",
+        essence: "El Constructor / La Base",
+        keywords: ["Estructura", "Orden", "Disciplina", "Estabilidad"],
+        geometry: "Cuadrado (fundamento sólido)",
+        element: "Tierra",
+        vibration: "Cimientos, orden y trabajo metódico",
+        arcana: "El Emperador",
         light: "Perseverancia, orden meticuloso, lealtad a toda prueba y servicio desinteresado. Son la base sólida, trabajadores incansables y equilibrados.",
         shadow: "Rigidez mental, terquedad, insensibilidad y flojera extrema. Pueden volverse monotemáticos o resistirse violentamente al cambio.",
-        mission: "Aprender que 'el que vive para servir, sirve para vivir'. Desarrollar la inteligencia práctica sin perder la conexión con el corazón."
+        mission: "Aprender que 'el que vive para servir, sirve para vivir'. Desarrollar la inteligencia práctica sin perder la conexión con el corazón.",
+        lifePathDesc: "Tu misión es construir estructuras duraderas con disciplina y orden. Eres el arquitecto de lo tangible.",
+        dayDesc: "Día para organizar, planificar, construir bases y trabajar con método.",
+        yearDesc: "Año de trabajo duro. Estás poniendo los cimientos del futuro."
       },
       5: {
         keyword: "Disciplina / Libertad",
+        essence: "El Aventurero / El Cambio",
+        keywords: ["Libertad", "Aventura", "Cambio", "Versatilidad"],
+        geometry: "Pentagrama (5 sentidos)",
+        element: "Aire",
+        vibration: "Movimiento, adaptación y experiencia",
+        arcana: "El Hierofante",
         light: "Vitalidad, agilidad mental, amor por la aventura y capacidad de enseñar. Son flexibles, sensuales y valientes ante los cambios del destino.",
         shadow: "Libertinaje, impulsividad, obsesiones sexuales, falta de rumbo y estancamiento. Pueden ser hipercríticos o destructivos por falta de autodisciplina.",
-        mission: "Utilizar la libertad con sabiduría. Aprender la flexibilidad interna y superar los miedos a través de la disciplina consciente."
+        mission: "Utilizar la libertad con sabiduría. Aprender la flexibilidad interna y superar los miedos a través de la disciplina consciente.",
+        lifePathDesc: "Tu misión es explorar, adaptarte y vivir la vida como una aventura. Eres el catalizador del cambio.",
+        dayDesc: "Día de cambios, viajes, nuevas experiencias y romper rutinas.",
+        yearDesc: "Año de libertad y cambios inesperados. Adáptate y fluye."
       },
       6: {
         keyword: "Misticismo / Equilibrio",
+        essence: "El Armonizador / El Amor",
+        keywords: ["Armonía", "Responsabilidad", "Hogar", "Amor"],
+        geometry: "Hexágono (equilibrio perfecto)",
+        element: "Agua / Tierra",
+        vibration: "Amor incondicional, frecuencia base 432Hz",
+        arcana: "Los Enamorados",
         light: "Amor divino, protección celestial, sexto sentido activo y fe inquebrantable. Son los sanadores por excelencia, justos y protectores del hogar.",
-        shadow: "Egoísmo, pesimismo, vulnerabilidad extrema y fanatismo. Si pierden su conexión (la línea de arco), su palabra puede volverse destructiva.",
-        mission: "Encontrar a Dios dentro de sí mismos. Integrar lo humano con lo divino y servir sin esperar retribución alguna."
+        shadow: "Egoísmo, pesimismo, vulnerabilidad extrema y fanatismo. Si pierden su conexión, su palabra puede volverse destructiva.",
+        mission: "Encontrar a Dios dentro de sí mismos. Integrar lo humano con lo divino y servir sin esperar retribución alguna.",
+        lifePathDesc: "Tu misión es crear armonía, cuidar y amar incondicionalmente. Eres el guardián del equilibrio.",
+        dayDesc: "Día ideal para la familia, el hogar, el amor y resolver conflictos.",
+        yearDesc: "Año de responsabilidad familiar y relaciones. Cuida tu entorno."
       },
       7: {
         keyword: "Liderazgo / Pensamiento",
+        essence: "El Místico / El Buscador",
+        keywords: ["Espiritualidad", "Introspección", "Sabiduría", "Análisis"],
+        geometry: "Heptágono (misterio)",
+        element: "Agua",
+        vibration: "Búsqueda interior, conexión con lo divino",
+        arcana: "El Carro",
         light: "Poder del verbo, carisma, independencia y profundidad esotérica. Son triunfadores natos guiados por su visión interna y la misericordia.",
         shadow: "Tiranía, despotismo, frialdad emocional e inseguridad oculta bajo una máscara de orgullo. Pueden ser crueles o distantes si temen al fracaso.",
-        mission: "Convertirse en líderes espirituales. Desarrollar la compasión y profundizar en el conocimiento a través de la soledad elegida."
+        mission: "Convertirse en líderes espirituales. Desarrollar la compasión y profundizar en el conocimiento a través de la soledad elegida.",
+        lifePathDesc: "Tu misión es buscar la verdad espiritual y la sabiduría profunda. Eres el canal de lo divino.",
+        dayDesc: "Día para meditar, estudiar, introspección y conexión espiritual.",
+        yearDesc: "Año de reflexión profunda. Busca respuestas dentro de ti."
       },
       8: {
         keyword: "Pureza / Abundancia",
+        essence: "El Poderoso / La Abundancia",
+        keywords: ["Poder", "Abundancia", "Autoridad", "Logro"],
+        geometry: "Octágono / Infinito (∞)",
+        element: "Tierra / Fuego",
+        vibration: "Manifestación material, ciclo infinito de dar y recibir",
+        arcana: "La Justicia",
         light: "Fortaleza física, dominio de la energía pránica y sanación a través de las manos. Son transparentes, inocentes y capaces de materializar grandes éxitos.",
         shadow: "Vampirismo energético, desorden, timidez tóxica y autodestrucción. Pueden volverse dependientes de la aprobación ajena o posesivos.",
-        mission: "Manejo sabio de la energía financiera y espiritual. Ver la pureza en todo y planificar el éxito a largo plazo sin apegos."
+        mission: "Manejo sabio de la energía financiera y espiritual. Ver la pureza en todo y planificar el éxito a largo plazo sin apegos.",
+        lifePathDesc: "Tu misión es dominar el mundo material con ética y abundancia. Eres el alquimista de la prosperidad.",
+        dayDesc: "Día ideal para negocios, finanzas, tomar el control y manifestar.",
+        yearDesc: "Año de cosecha material. Tus esfuerzos dan fruto económico."
       },
       9: {
         keyword: "Realización / Sabiduría",
+        essence: "El Humanitario / El Cierre",
+        keywords: ["Universalidad", "Compasión", "Cierre", "Sabiduría"],
+        geometry: "Eneágono / Espiral",
+        element: "Fuego / Agua",
+        vibration: "Completación del ciclo, liberación y servicio",
+        arcana: "El Ermitaño",
         light: "Amor impersonal, falta de juicio, clarividencia y calma infinita. Es el número del cierre de ciclo y la culminación humanitaria.",
         shadow: "Superficialidad, banalidad, mentalidad estrecha y falta de sensibilidad social. Pueden perder la profundidad y volverse amargos.",
-        mission: "Lograr la realización total al servicio de la humanidad. Aprender a ver lo sutil y concretar ideales nobles sin demora."
+        mission: "Lograr la realización total al servicio de la humanidad. Aprender a ver lo sutil y concretar ideales nobles sin demora.",
+        lifePathDesc: "Tu misión es servir a la humanidad con compasión y sabiduría universal. Eres el guardián del ciclo.",
+        dayDesc: "Día para cerrar ciclos, perdonar, soltar y servir a otros.",
+        yearDesc: "Año de cierres. Deja ir lo que ya no sirve para renacer."
       },
       10: {
         keyword: "Totalidad / Liderazgo",
-        light: "Fuerza interna y externa, decisión rápida, 'la punta de la flecha'. Son lideres carismáticos e iniciadores de grandes proyectos.",
+        essence: "La Rueda de la Fortuna",
+        keywords: ["Renacimiento", "Poder total", "Punta de flecha"],
+        geometry: "Círculo completo + punto central",
+        element: "Éter",
+        vibration: "Fuerza interna y externa en máxima expresión",
+        arcana: "La Rueda de la Fortuna",
+        light: "Fuerza interna y externa, decisión rápida, 'la punta de la flecha'. Son líderes carismáticos e iniciadores de grandes proyectos.",
         shadow: "Se desmoronan totalmente (todo o nada), agresividad, cinismo y parálisis por miedo. Pueden volverse vengativos ante el rechazo.",
-        mission: "Encontrar su fuente de poder interna. Iniciar macroproyectos y aprender a amarse para proyectar seguridad al mundo."
+        mission: "Encontrar su fuente de poder interna. Iniciar macroproyectos y aprender a amarse para proyectar seguridad al mundo.",
+        lifePathDesc: "Posees el ciclo completo. Tu liderazgo nace de la integración total de todas las vibraciones.",
+        dayDesc: "Día de culminaciones y nuevos inicios desde la totalidad.",
+        yearDesc: "Año de poder total. Usa tu influencia con sabiduría."
       },
       11: {
         keyword: "Súperconsciencia",
+        essence: "El Iluminador / Intuición Maestra",
+        keywords: ["Intuición", "Inspiración", "Canal espiritual", "Visión"],
+        geometry: "Dos columnas paralelas (portal)",
+        element: "Luz",
+        vibration: "Vibración intensa amplificada — antena espiritual",
+        arcana: "La Fuerza",
         light: "Unidad con el todo, percepción elevada, compasión infinita y conexión directa con el Creador. Son maestros etéreos que equilibran su entorno.",
         shadow: "Conflicto interno, inconstancia, pánico al compromiso y estrés por hipersensibilidad. Pueden sentirse traicionados o vivir estresados.",
-        mission: "Alcanzar la supra consciencia global. Integrar el Yin y el Yang (masculino/femenino) y vivir su misión como un 'examen parcial' hacia la luz."
+        mission: "Alcanzar la supra consciencia global. Integrar el Yin y el Yang y vivir su misión como un 'examen parcial' hacia la luz.",
+        lifePathDesc: "Posees una antena espiritual amplificada. Eres el canal entre lo divino y lo terrenal.",
+        dayDesc: "Día de máxima intuición. Presta atención a las señales del universo.",
+        yearDesc: "Año de iluminación. Tu percepción se expande más allá de lo visible.",
+        isMaster: true,
+        responsibility: "Con gran poder vibratorio viene gran responsabilidad de guiar a otros."
+      },
+      22: {
+        keyword: "Constructor Maestro",
+        essence: "El Arquitecto del Destino Colectivo",
+        keywords: ["Manifestación", "Construcción global", "Visión masiva", "Legado"],
+        geometry: "Doble cuadrado (estructura suprema)",
+        element: "Tierra / Éter",
+        vibration: "Vibración de construcción cósmica — materializar visiones a gran escala",
+        arcana: "El Loco",
+        light: "Capacidad de materializar visiones a gran escala. Arquitecto del destino colectivo. Combina la intuición del 11 con la practicidad del 4.",
+        shadow: "Frustración por no lograr sus metas grandiosas. Puede caer en la megalomanía o en la parálisis por la magnitud de su visión.",
+        mission: "Debes construir algo que trascienda tu vida individual. Tu legado impactará generaciones futuras.",
+        lifePathDesc: "Tu misión es construir estructuras que transformen la humanidad. Eres el puente entre la visión y la realidad.",
+        dayDesc: "Día para planificar a gran escala. Tu capacidad de manifestación está en su punto máximo.",
+        yearDesc: "Año de construcción masiva. Lo que crees ahora será tu legado.",
+        isMaster: true,
+        responsibility: "Debes construir algo que trascienda tu vida individual."
+      },
+      33: {
+        keyword: "Maestro de Maestros",
+        essence: "El Diapasón Espiritual",
+        keywords: ["Servicio divino", "Sanación", "Amor universal", "Ascensión"],
+        geometry: "Vesica Piscis (dos círculos superpuestos)",
+        element: "Amor puro",
+        vibration: "Diapasón espiritual que resuena con todos los chakras",
+        arcana: "El Mundo",
+        light: "El número más elevado. Tu sola presencia sana y eleva. Envías vibraciones que transforman a quienes te rodean. Compasión ilimitada.",
+        shadow: "Sacrificio extremo, martirio, agotamiento por dar sin límites. Puede olvidar sus propias necesidades en el servicio a otros.",
+        mission: "Tu vida entera es un acto de servicio y elevación de consciencia. Eres el faro que ilumina el camino de los demás.",
+        lifePathDesc: "Eres el Maestro de Maestros. Tu vibración sana y eleva a quienes te rodean.",
+        dayDesc: "Día de máxima conexión espiritual. Tu servicio transforma vidas.",
+        yearDesc: "Año de ascensión espiritual. Todo lo que toques se transforma.",
+        isMaster: true,
+        responsibility: "Tu vida entera es un acto de servicio y elevación de consciencia."
       }
     },
     factors: {
@@ -80,6 +216,12 @@ export const interpretations = {
       gift: "Un talento celestial gratuito otorgado en esta encarnación para ayudarte.",
       pastLives: "Lo que tu alma ya dominó en vidas anteriores. Tu equipaje de sabiduría.",
       mission: "La meta de perfección. El camino hacia tu felicidad y realización absoluta."
+    },
+    universalYear2026: {
+      number: 1,
+      description: "Año Universal 1: Después del cierre y caos del 2025 (Año 9), el 2026 marca el inicio de una nueva era de 9 años. Es un 'terreno fértil' para sembrar nuevas intenciones.",
+      keywords: ["Nuevo comienzo", "Semilla", "Terreno fértil", "Era nueva"],
+      advice: "Siembra ahora lo que quieres cosechar en los próximos 9 años."
     }
   }
 };
