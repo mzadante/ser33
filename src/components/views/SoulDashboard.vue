@@ -20,28 +20,28 @@
         <span class="label">{{ $t('results.lifePath') }}</span>
         <span class="value">{{ results.lifePath }}</span>
         <span class="keyword">{{ getKeyword(results.lifePath) }}</span>
-        <span class="cta">Ver interpretación <IconArrowRight :size="12" class="inline-icon" /></span>
+        <span class="cta">{{ $t('results.viewInterpretation') }} <IconArrowRight :size="12" class="inline-icon" /></span>
       </div>
 
       <div class="number-card number-card-anim clickable" @click="emitViewNumber(results.soulNumber, 'soul', $t('results.soul'), $t('results.soulDesc'))">
         <span class="label">{{ $t('results.soul') }}</span>
         <span class="value">{{ results.soulNumber }}</span>
         <span class="keyword">{{ getKeyword(results.soulNumber) }}</span>
-        <span class="cta">Ver interpretación <IconArrowRight :size="12" class="inline-icon" /></span>
+        <span class="cta">{{ $t('results.viewInterpretation') }} <IconArrowRight :size="12" class="inline-icon" /></span>
       </div>
 
       <div class="number-card number-card-anim clickable" @click="emitViewNumber(results.personalityNumber, 'personality', $t('results.personality'), $t('results.personalityDesc'))">
         <span class="label">{{ $t('results.personality') }}</span>
         <span class="value">{{ results.personalityNumber }}</span>
         <span class="keyword">{{ getKeyword(results.personalityNumber) }}</span>
-        <span class="cta">Ver interpretación <IconArrowRight :size="12" class="inline-icon" /></span>
+        <span class="cta">{{ $t('results.viewInterpretation') }} <IconArrowRight :size="12" class="inline-icon" /></span>
       </div>
 
       <div class="number-card highlight number-card-anim destiny-card clickable" @click="emitViewNumber(results.destinyNumber, 'destiny', $t('results.destiny'), $t('results.destinyDesc'))">
         <span class="label">{{ $t('results.destiny') }}</span>
         <span class="value">{{ results.destinyNumber }}</span>
         <span class="keyword">{{ getKeyword(results.destinyNumber) }}</span>
-        <span class="cta">Ver interpretación <IconArrowRight :size="12" class="inline-icon" /></span>
+        <span class="cta">{{ $t('results.viewInterpretation') }} <IconArrowRight :size="12" class="inline-icon" /></span>
       </div>
     </div>
 
@@ -55,9 +55,6 @@
       <div class="tantric-layout">
         <div class="pentagon-visual-container">
           <img src="@/assets/omkin_factors_2.png" alt="Pentágono Omkin" class="pentagon-img" />
-          <div class="factor-overlay">
-            <!-- Los factores se posicionarán aquí dinámicamente en el futuro -->
-          </div>
         </div>
         
         <div class="factors-grid">
@@ -84,28 +81,28 @@
       <transition name="slide-fade">
         <div v-if="selectedFactorData" class="interpretation-panel glass-panel">
           <div class="panel-header">
-            <h4>Número {{ selectedFactorValue }}: {{ selectedFactorData.keyword }}</h4>
+            <h4>{{ $t('results.number') }} {{ selectedFactorValue }}: {{ selectedFactorData.keyword }}</h4>
             <p class="factor-context">{{ factorContext }}</p>
           </div>
           
           <div class="panel-content">
             <div class="meaning-group">
-              <span class="meaning-label luz">Vibración en Luz:</span>
+              <span class="meaning-label luz">{{ $t('results.light') }}:</span>
               <p>{{ selectedFactorData.light }}</p>
             </div>
             
             <div class="meaning-group">
-              <span class="meaning-label sombra">Vibración en Sombra:</span>
+              <span class="meaning-label sombra">{{ $t('results.shadow') }}:</span>
               <p>{{ selectedFactorData.shadow }}</p>
             </div>
 
             <div class="meaning-group">
-              <span class="meaning-label mision">Tarea Evolutiva:</span>
+              <span class="meaning-label mision">{{ $t('results.mission') }}:</span>
               <p>{{ selectedFactorData.mission }}</p>
             </div>
           </div>
           
-          <button class="btn-gold outline-btn mini-btn" @click="closeFactor">Cerrar Sabiduría</button>
+          <button class="btn-gold outline-btn mini-btn" @click="closeFactor">{{ $t('results.closeWisdom') }}</button>
         </div>
       </transition>
     </div>
@@ -124,8 +121,8 @@
     <!-- Nueva Sección: Códigos de Activación Sabios (Grabovoi / Tántricos) -->
     <div class="activation-section glass-panel mystic-fadeIn">
       <div class="section-header">
-        <h3>Activación y Creación Diaria</h3>
-        <p class="section-desc">Repite estos códigos para sintonizar tu realidad con la abundancia y la salud.</p>
+        <h3>{{ $t('results.activationTitle') }}</h3>
+        <p class="section-desc">{{ $t('results.activationDesc') }}</p>
       </div>
 
       <div class="codes-grid">
@@ -137,24 +134,23 @@
             :class="{ 'pulse-active': activeFreq === code.hz }"
             @click="handleFreqClick(code.hz)"
           >
-            {{ activeFreq === code.hz ? 'Sintonizando...' : 'Sintonizar' }}
+            {{ activeFreq === code.hz ? $t('results.tuning') : $t('results.tune') }}
           </button>
         </div>
       </div>
       
       <div class="ritual-box">
-        <p><strong>Ritual Tántrico Sugerido:</strong> Realiza la respiración 8-4-8-4 mientras visualizas tu número de Misión ({{ results.omkin.mission }}) rodeado de luz dorada.</p>
+        <p v-html="$t('results.ritualDesc', { mission: results.omkin.mission })"></p>
       </div>
     </div>
 
     <!-- Zona de Módulos Secundarios -->
     <div class="future-modules-grid">
-      <!-- Módulo: Resonancia Solfeggio -->
       <div class="module-placeholder audio-module mystic-fadeIn">
         <div class="module-icon">
           <IconSolfeggio :size="60" :animated="true" />
         </div>
-        <h3>Frecuencia Solfeggio</h3>
+        <h3>{{ $t('results.solfeggioTitle') }}</h3>
         <p>{{ $t('results.audioInstruction') }}</p>
         <button class="btn-gold outline-btn" @click="$emit('playAudio')">
           {{ $t('results.activateAudio') }}
@@ -165,22 +161,14 @@
     <!-- Nueva Sección: Base de Conocimiento (Explicación de Herramientas) -->
     <div class="knowledge-base glass-panel mystic-fadeIn">
       <div class="section-header">
-        <h3>Glosario de Sabiduría</h3>
-        <p class="section-desc">Entiende las tecnologías de consciencia que estamos utilizando.</p>
+        <h3>{{ $t('results.glossaryTitle') }}</h3>
+        <p class="section-desc">{{ $t('results.glossaryDesc') }}</p>
       </div>
 
       <div class="glossary-grid">
-        <div class="glossary-item">
-          <strong>Numerología Pitagórica</strong>
-          <p>Mapeo de la personalidad y el destino a través del valor vibratorio de las letras y la fecha, basado en los principios matemáticos de Pitágoras.</p>
-        </div>
-        <div class="glossary-item">
-          <strong>Omkin Kay (Tántrica)</strong>
-          <p>Un sistema de 5 factores que revela tu esencia profunda, tu karma, tus dones celestiales y tu misión de vida específica en esta encarnación.</p>
-        </div>
-        <div class="glossary-item">
-          <strong>Frecuencias Solfeggio</strong>
-          <p>Tonos electromagnéticos antiguos utilizados para armonizar el cuerpo y la mente (ej. 528Hz para transformación y reparación de ADN).</p>
+        <div class="glossary-item" v-for="item in glossaryItems" :key="item.title">
+          <strong>{{ item.title }}</strong>
+          <p>{{ item.desc }}</p>
         </div>
       </div>
     </div>
@@ -191,15 +179,17 @@
 
 <script setup>
 import { onMounted, ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { interpretations } from '../../data/interpretations.js';
+import { IconArrowRight, IconExpand, IconCollapse, IconSolfeggio, IconBase } from '../icons';
+import { usePdfGenerator } from '../../composables/usePdfGenerator.js';
+import { GRABOVOI_SEQUENCES } from '../../data/grabovoiCatalog.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
-import { IconArrowRight, IconExpand, IconCollapse, IconSolfeggio, IconBase } from '../icons';
-import { usePdfGenerator } from '../../composables/usePdfGenerator.js';
-
+const { locale, t } = useI18n();
 const { generateManual } = usePdfGenerator();
 
 const props = defineProps({
@@ -215,16 +205,26 @@ const props = defineProps({
 
 const emit = defineEmits(['reset', 'playAudio', 'playFrequency', 'viewNumber']);
 const dashboardRef = ref(null);
-
-import { GRABOVOI_SEQUENCES } from '../../data/grabovoiCatalog.js';
-
 const activeFreq = ref(null);
-const activationCodes = Object.values(GRABOVOI_SEQUENCES).map(s => ({
-  title: s.name, digits: s.code, hz: s.hz, desc: s.description, mode: s.mode
-}));
+
+const currentLang = computed(() => locale.value || 'es');
+
+const activationCodes = computed(() => {
+  return Object.values(GRABOVOI_SEQUENCES).map(s => ({
+    title: currentLang.value === 'es' ? s.name : (s.nameEn || s.name),
+    digits: s.code,
+    hz: s.hz
+  }));
+});
+
+const glossaryItems = computed(() => [
+  { title: t('results.glossaryPyth.title'), desc: t('results.glossaryPyth.desc') },
+  { title: t('results.glossaryOmkin.title'), desc: t('results.glossaryOmkin.desc') },
+  { title: t('results.glossaryFreq.title'), desc: t('results.glossaryFreq.desc') }
+]);
 
 const getKeyword = (num) => {
-  const data = interpretations.es.numbers[num];
+  const data = interpretations[currentLang.value].numbers[num];
   return data ? data.keyword : '';
 };
 
@@ -244,6 +244,8 @@ const handleDownload = async () => {
   isGenerating.value = true;
   try {
     await generateManual(props.results, props.computedName);
+  } catch (err) {
+    console.error("PDF Error in Dashboard:", err);
   } finally {
     isGenerating.value = false;
   }
@@ -254,13 +256,12 @@ const selectedFactorValue = ref(null);
 
 const selectedFactorData = computed(() => {
   if (!selectedKey.value) return null;
-  // Usamos el idioma español por defecto para esta fase, o inyectar i18n
-  return interpretations.es.numbers[selectedFactorValue.value];
+  return interpretations[currentLang.value].numbers[selectedFactorValue.value];
 });
 
 const factorContext = computed(() => {
   if (!selectedKey.value) return '';
-  return interpretations.es.factors[selectedKey.value];
+  return interpretations[currentLang.value].factors[selectedKey.value];
 });
 
 const selectFactor = (key, value) => {
@@ -276,10 +277,8 @@ const closeFactor = () => {
   selectedKey.value = null;
 };
 
-// Los factores vienen directamente de la nueva lógica integrada en App.vue
 const getStageImage = () => {
-  // Manejar imagen según idioma (i18n)
-  const lang = document.documentElement.lang || 'es';
+  const lang = currentLang.value;
   return new URL(`../../assets/stages_${lang}.png`, import.meta.url).href;
 };
 
@@ -288,13 +287,11 @@ onMounted(() => {
 });
 
 const initAnimations = () => {
-  // GSAP: Stagger Reveal para las tarjetas (visible inmediatamente)
   gsap.fromTo('.number-card-anim',
     { opacity: 0, y: 30 },
     { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power2.out', delay: 0.2 }
   );
 
-  // Secciones glass-panel: scroll-triggered
   gsap.utils.toArray('.glass-panel.mystic-fadeIn').forEach(panel => {
     gsap.fromTo(panel,
       { opacity: 0, y: 40 },
@@ -304,7 +301,6 @@ const initAnimations = () => {
     );
   });
 
-  // Factor items: animación cuando entran al viewport  
   const factorItems = gsap.utils.toArray('.factor-item');
   if (factorItems.length > 0) {
     gsap.fromTo(factorItems,
@@ -317,7 +313,6 @@ const initAnimations = () => {
 };
 
 const resetForm = () => {
-  // Animación de salida antes de resetear
   gsap.to(dashboardRef.value, {
     opacity: 0,
     y: 100,
@@ -329,6 +324,7 @@ const resetForm = () => {
 </script>
 
 <style scoped>
+/* Estilos se mantienen iguales */
 .dashboard-container {
   width: 100%;
   max-width: 900px;
@@ -371,7 +367,6 @@ const resetForm = () => {
   box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
 }
 
-/* Grilla de Números Principales */
 .numerology-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -382,7 +377,7 @@ const resetForm = () => {
   background: var(--bg-glass);
   backdrop-filter: blur(10px);
   border: 1px solid var(--border-glass);
-  padding: 2rem; /* ¡Padding corregido! */
+  padding: 2rem;
   border-radius: 12px;
   text-align: center;
   display: flex;
@@ -410,19 +405,8 @@ const resetForm = () => {
   color: var(--gold-radiant);
 }
 
-.number-card .desc {
-  font-size: 0.85rem;
-  color: var(--text-main);
-}
-
 .number-card.clickable {
   cursor: pointer;
-}
-
-.number-card.clickable:hover {
-  border-color: var(--gold-radiant);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15), 0 0 20px rgba(212, 175, 55, 0.1);
 }
 
 .number-card .keyword {
@@ -478,7 +462,6 @@ const resetForm = () => {
   margin-top: 0.3rem;
 }
 
-/* Omkin Section */
 .tantric-layout {
   display: flex;
   flex-direction: column;
@@ -542,7 +525,6 @@ const resetForm = () => {
   opacity: 0.5;
 }
 
-/* Pythagoras Section Refinada */
 .stages-visual {
   width: 100%;
   max-width: 700px;
@@ -555,7 +537,7 @@ const resetForm = () => {
 
 .stages-img {
   width: 100%;
-  max-height: 420px; /* ¡Altura controlada! */
+  max-height: 420px;
   object-fit: contain;
   background: #000;
   display: block;
@@ -578,7 +560,6 @@ const resetForm = () => {
   border-right-color: var(--gold-radiant);
 }
 
-/* Panel de Interpretación */
 .interpretation-panel {
   margin-top: 2rem;
   padding: 1.5rem;
@@ -598,8 +579,6 @@ const resetForm = () => {
   font-size: 0.85rem !important;
   width: auto !important;
   min-width: 130px;
-  position: relative;
-  overflow: hidden;
 }
 
 .pulse-active {
@@ -632,7 +611,6 @@ const resetForm = () => {
   color: var(--gold-radiant);
 }
 
-/* Glosario */
 .glossary-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -655,45 +633,13 @@ const resetForm = () => {
   line-height: 1.5;
 }
 
-/* Animations */
-.slide-fade-enter-active {
-  transition: all 0.5s ease-out;
-}
-.slide-fade-leave-active {
-  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.slide-fade-enter-from, .slide-fade-leave-to {
-  transform: translateY(20px);
-  opacity: 0;
-}
-
-.pulse-anim {
-  animation: pulse-gold 2s infinite;
-}
-
-@keyframes pulse-gold {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
-  70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
-}
-
-.solfeggio-icon-img {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
-}
+.slide-fade-enter-active { transition: all 0.5s ease-out; }
+.slide-fade-leave-active { transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1); }
+.slide-fade-enter-from, .slide-fade-leave-to { transform: translateY(20px); opacity: 0; }
 
 @media (max-width: 768px) {
-  .tantric-layout {
-    flex-direction: column;
-  }
-  .pentagon-visual-container {
-    width: 100%;
-    height: 300px;
-  }
-  .codes-grid {
-    grid-template-columns: 1fr;
-  }
+  .tantric-layout { flex-direction: column; }
+  .pentagon-visual-container { width: 100%; height: 300px; }
+  .codes-grid { grid-template-columns: 1fr; }
 }
 </style>

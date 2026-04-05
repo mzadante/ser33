@@ -1,8 +1,8 @@
 /**
- * Diccionario de Interpretaciones Profundas - Manual del Destino (ser33)
- * Redactado por: Guionista de la Consciencia
- * Fuentes: Mi Numerología (#1), Pitagórica (#4, #6), Omkin Kay (#9),
- *          Deluxe Report (#11), Gematría Hebrea (#10), Simbología (#7)
+ * Dictionary of Deep Interpretations - Destiny Manual (ser33)
+ * Drafted by: Consciousness Scriptwriter
+ * Sources: Mi Numerología (#1), Pitagórica (#4, #6), Omkin Kay (#9),
+ *          Deluxe Report (#11), Hebrew Gematria (#10), Symbolism (#7)
  */
 
 export const interpretations = {
@@ -167,7 +167,7 @@ export const interpretations = {
         vibration: "Vibración intensa amplificada — antena espiritual",
         arcana: "La Fuerza",
         light: "Unidad con el todo, percepción elevada, compasión infinita y conexión directa con el Creador. Son maestros etéreos que equilibran su entorno.",
-        shadow: "Conflicto interno, inconstancia, pánico al compromiso y estrés por hipersensibilidad. Pueden sentirse traicionados o vivir estresados.",
+        shadow: "Conflicto interno, inconstancia, pánico al compromiso y estrés por hipersensibilidad. Pueden sentir traicionados o vivir estresados.",
         mission: "Alcanzar la supra consciencia global. Integrar el Yin y el Yang y vivir su misión como un 'examen parcial' hacia la luz.",
         lifePathDesc: "Posees una antena espiritual amplificada. Eres el canal entre lo divino y lo terrenal.",
         dayDesc: "Día de máxima intuición. Presta atención a las señales del universo.",
@@ -222,6 +222,312 @@ export const interpretations = {
       description: "Año Universal 1: Después del cierre y caos del 2025 (Año 9), el 2026 marca el inicio de una nueva era de 9 años. Es un 'terreno fértil' para sembrar nuevas intenciones.",
       keywords: ["Nuevo comienzo", "Semilla", "Terreno fértil", "Era nueva"],
       advice: "Siembra ahora lo que quieres cosechar en los próximos 9 años."
+    },
+    pinnacleMeanings: {
+      1: "Cima de independencia y liderazgo. Este período exige que tomes las riendas de tu vida con valentía. Aprenderás a confiar en ti mismo y a tomar decisiones autónomas.",
+      2: "Cima de cooperación y sensibilidad. Este período te enseña el arte de la paciencia, la diplomacia y las relaciones profundas. Los vínculos serán tu mayor maestro.",
+      3: "Cima de expresión creativa. Tu voz, tu arte y tu carisma natural florecen. Es un período de alegría, comunicación y expansión social.",
+      4: "Cima de trabajo y construcción. Este período demanda disciplina, orden y esfuerzo metódico. Lo que construyas aquí será duradero y significativo.",
+      5: "Cima de cambio y libertad. Espera lo inesperado. Viajes, transformaciones y nuevas experiencias te forjarán. La adaptabilidad es tu superpoder.",
+      6: "Cima de amor y responsabilidad. La familia, el hogar y las relaciones cercanas están en el centro. Sanarás y serás sanado a través del amor incondicional.",
+      7: "Cima de introspección y sabiduría. Un período para retirarte, estudiar y conectar con tu espiritualidad. La soledad elegida te revelará verdades profundas.",
+      8: "Cima de poder y abundancia material. Tus esfuerzos se materializan en logros concretos. Es el período para cosechar, invertir y liderar con ética.",
+      9: "Cima de servicio humanitario. Tu compasión se expande más allá de lo personal. Este período te invita a soltar, perdonar y servir al bien mayor.",
+      11: "Cima maestra de iluminación. Tu intuición se amplifica exponencialmente. Serás un canal de inspiración para otros, pero debes gestionar la hipersensibilidad.",
+      22: "Cima maestra de construcción global. Tienes el potencial de crear algo que trascienda generaciones. La visión es inmensa, pero requiere disciplina titánica."
+    },
+    challengeMeanings: {
+      0: "Desafío del libre albedrío. Todos los desafíos están presentes, o ninguno domina. Debes elegir conscientemente qué lección trabajar. Es el más raro y el más exigente.",
+      1: "Desafío de la independencia. Luchas con la inseguridad, la dependencia de otros o el miedo a liderar. Tu lección es confiar en tu propia fuerza sin caer en el aislamiento.",
+      2: "Desafío de la sensibilidad. La hipersensibilidad, los celos o la timidez te frenan. Tu lección es cooperar sin perder tu identidad y expresar emociones sin miedo.",
+      3: "Desafío de la expresión. Reprimes tu creatividad, te autocriticas o dispersas tu energía. Tu lección es comunicar tu verdad con autenticidad y enfoque.",
+      4: "Desafío de la disciplina. La pereza, el desorden o la rigidez te limitan. Tu lección es encontrar el equilibrio entre estructura y flexibilidad.",
+      5: "Desafío de la libertad. Los excesos, la impulsividad o el miedo al cambio te desestabilizan. Tu lección es usar la libertad con responsabilidad.",
+      6: "Desafío de la responsabilidad. El perfeccionismo, el control o el sacrificio excesivo te agotan. Tu lección es servir sin perderte a ti mismo.",
+      7: "Desafío de la fe. El escepticismo extremo, el aislamiento o la represión emocional te desconectan. Tu lección es confiar en lo que no puedes ver.",
+      8: "Desafío del poder. La ambición desmedida, el materialismo o el miedo al fracaso te dominan. Tu lección es manejar el poder con ética y generosidad."
+    },
+    maturityMeanings: {
+      1: "Tu yo maduro es un líder auténtico. A partir de los 40, sentirás un impulso creciente hacia la independencia, el emprendimiento y la innovación.",
+      2: "Tu yo maduro es un diplomático sabio. Con los años, la cooperación, la paciencia y la mediación se convertirán en tus mayores fortalezas.",
+      3: "Tu yo maduro es un comunicador brillante. La expresión creativa, la escritura, el arte o la enseñanza florecerán con intensidad.",
+      4: "Tu yo maduro es un constructor incansable. Tu segunda mitad de vida estará dedicada a crear legados tangibles y estructuras sólidas.",
+      5: "Tu yo maduro es un aventurero libre. A partir de los 40, viajes, cambios de carrera y reinvención serán tu norma.",
+      6: "Tu yo maduro es un sanador del hogar. La familia, la comunidad y el servicio amoroso definirán tu propósito en la madurez.",
+      7: "Tu yo maduro es un buscador espiritual. La filosofía, la meditación y la búsqueda de significado se intensificarán.",
+      8: "Tu yo maduro es un manifestador de abundancia. El éxito material y el poder ético llegarán con fuerza.",
+      9: "Tu yo maduro es un humanitario universal. La compasión y el servicio se profundizarán. Tu impacto será global.",
+      11: "Tu yo maduro es un canal espiritual amplificado. Serás faro de luz para muchos.",
+      22: "Tu yo maduro es un arquitecto de legados. Lo que construyas trascenderá generaciones.",
+      33: "Tu yo maduro es el maestro compasivo supremo. Eres la encarnación del amor incondicional."
+    },
+    karmicDebtDetails: {
+      13: { title: "Deuda 13/4 — La Pereza Ancestral", lesson: "En vidas pasadas evitaste el trabajo duro. Ahora debes construir con disciplina.", transmutation: "Abraza la disciplina como tu aliada." },
+      14: { title: "Deuda 14/5 — El Exceso de Libertad", lesson: "Abusaste de la libertad en encarnaciones previas. Aprende responsabilidad.", transmutation: "Usa tu libertad con un propósito elevado." },
+      16: { title: "Deuda 16/7 — El Ego Descontrolado", lesson: "Tu ego dominó vidas anteriores. Cultiva la humildad.", transmutation: "Acepta las crisis como regalos de crecimiento." },
+      19: { title: "Deuda 19/1 — El Poder Mal Utilizado", lesson: "Usaste tu poder para dominación. Aprende el liderazgo desde el servicio.", transmutation: "Lidera desde el ejemplo y la cooperación." }
+    }
+  },
+  en: {
+    numbers: {
+      1: {
+        keyword: "Kindness / Initiation",
+        essence: "The Leader / The Pioneer",
+        keywords: ["Initiation", "Independence", "Innovation", "Willpower"],
+        geometry: "Luminous point",
+        element: "Fire",
+        vibration: "Pure creation, origin of everything",
+        arcana: "The Magician",
+        light: "Humility, authentic creativity, physical dynamism and soft command. They are natural initiators, loyal friends and protectors. They represent unity and pure willpower.",
+        shadow: "Vanity, pride, paralysis before decisions, depressive tendencies and slowness. They can become dominant or easily manipulated due to lack of self-verification.",
+        mission: "Learn to take initiative from the heart, be 'humble and meek', and transform inactivity into constructive action.",
+        lifePathDesc: "Your mission is to lead and open new paths. You are a natural initiator with the power to create realities from scratch.",
+        dayDesc: "Ideal day to start projects, take decisions and act with determination.",
+        yearDesc: "Year of new beginnings. Sow the seeds for the next 9 years."
+      },
+      2: {
+        keyword: "Obedience / Duality",
+        essence: "The Diplomat / The Cooperator",
+        keywords: ["Duality", "Cooperation", "Sensitivity", "Balance"],
+        geometry: "Line (connection between two points)",
+        element: "Water",
+        vibration: "Receptivity, alliances and duality",
+        arcana: "The High Priestess",
+        light: "Diplomacy, tact, mediation capacity and love for peace. They are excellent confidants, wise and lovers of family harmony. The disciple par excellence.",
+        shadow: "Influenceable, indecisive, fear of the unknown, jealousy and possessiveness. They can fall into spiritual disobedience or extreme emotional dependence.",
+        mission: "Collaborate with others without losing individuality. Transcend emotionality and associate from internal freedom.",
+        lifePathDesc: "Your mission is to mediate, cooperate and find balance in relationships. You are the bridge between worlds.",
+        dayDesc: "Day for diplomacy, collaboration and strengthening bonds.",
+        yearDesc: "Year of patience. Seeds need time to germinate."
+      },
+      3: {
+        keyword: "Positivity / Expression",
+        essence: "The Creator / The Trinity",
+        keywords: ["Expression", "Creativity", "Joy", "Communication"],
+        geometry: "Triangle (Divine Trinity)",
+        element: "Fire / Air",
+        vibration: "Creative manifestation, the power of Tesla's 3-6-9",
+        arcana: "The Empress",
+        light: "Expansive joy, magnetism, the 'money magnet' and brilliant communication. They are fortunate beings, seekers of truth and nature lovers.",
+        shadow: "Extreme pessimism (victim role), lying, scatter, extravagance and pride. They can become 'party poopers' or manipulators due to inferiority complexes.",
+        mission: "Reach positivity in all areas of life. Develop self-confidence and artistic capacity without judgment.",
+        lifePathDesc: "Your mission is to create, communicate and express your vision to the world. Your word has manifestation power.",
+        dayDesc: "Day to express yourself, create content, socialize and communicate ideas.",
+        yearDesc: "Year of creative expansion. Your voice is amplified."
+      },
+      4: {
+        keyword: "Intelligence / Structure",
+        essence: "The Builder / The Base",
+        keywords: ["Structure", "Order", "Discipline", "Stability"],
+        geometry: "Square (solid foundation)",
+        element: "Earth",
+        vibration: "Foundations, order and methodical work",
+        arcana: "The Emperor",
+        light: "Perseverance, meticulous order, total loyalty and selfless service. They are the solid base, tireless and balanced workers.",
+        shadow: "Mental rigidity, stubbornness, insensitivity and extreme laziness. They can become monothematic or violently resist change.",
+        mission: "Learn that 'he who lives to serve, serves to live'. Develop practical intelligence without losing connection with the heart.",
+        lifePathDesc: "Your mission is to build lasting structures with discipline and order. You are the architect of the tangible.",
+        dayDesc: "Day to organize, plan, build bases and work methodically.",
+        yearDesc: "Year of hard work. You are laying the foundations of the future."
+      },
+      5: {
+        keyword: "Discipline / Freedom",
+        essence: "The Adventurer / The Change",
+        keywords: ["Freedom", "Adventure", "Change", "Versatility"],
+        geometry: "Pentagram (5 senses)",
+        element: "Air",
+        vibration: "Movement, adaptation and experience",
+        arcana: "The Hierophant",
+        light: "Vitality, mental agility, love for adventure and teaching capacity. They are flexible, sensual and brave before the changes of destiny.",
+        shadow: "Debauchery, impulsivity, sexual obsessions, lack of direction and stagnation. They can be hypercritical or destructive due to lack of self-discipline.",
+        mission: "Use freedom with wisdom. Learn internal flexibility and overcome fears through conscious discipline.",
+        lifePathDesc: "Your mission is to explore, adapt and live life as an adventure. You are the catalyst for change.",
+        dayDesc: "Day of changes, travel, new experiences and breaking routines.",
+        yearDesc: "Year of freedom and unexpected changes. Adapt and flow."
+      },
+      6: {
+        keyword: "Mysticism / Balance",
+        essence: "The Harmonizer / The Love",
+        keywords: ["Harmony", "Responsibility", "Home", "Love"],
+        geometry: "Hexagon (perfect balance)",
+        element: "Water / Earth",
+        vibration: "Unconditional love, base frequency 432Hz",
+        arcana: "The Lovers",
+        light: "Divine love, celestial protection, active sixth sense and unwavering faith. They are the healers par excellence, just and protectors of the home.",
+        shadow: "Selfishness, pessimism, extreme vulnerability and fanaticism. If they lose their connection, their word can become destructive.",
+        mission: "Find God within themselves. Integrate the human with the divine and serve without expecting anything in return.",
+        lifePathDesc: "Your mission is to create harmony, care for and love unconditionally. You are the guardian of balance.",
+        dayDesc: "Ideal day for family, home, love and resolving conflicts.",
+        yearDesc: "Year of family responsibility and relationships. Take care of your surroundings."
+      },
+      7: {
+        keyword: "Leadership / Thought",
+        essence: "The Mystic / The Seeker",
+        keywords: ["Spirituality", "Introspection", "Wisdom", "Analysis"],
+        geometry: "Heptagon (mystery)",
+        element: "Water",
+        vibration: "Inner search, connection with the divine",
+        arcana: "The Chariot",
+        light: "Power of the word, charisma, independence and esoteric depth. They are natural achievers guided by their inner vision and mercy.",
+        shadow: "Tyranny, despotism, emotional coldness and hidden insecurity under a mask of pride. They can be cruel or distant if they fear failure.",
+        mission: "Become spiritual leaders. Develop compassion and deepen knowledge through chosen solitude.",
+        lifePathDesc: "Your mission is to seek spiritual truth and deep wisdom. You are the channel for the divine.",
+        dayDesc: "Day to meditate, study, introspection and spiritual connection.",
+        yearDesc: "Year of deep reflection. Seek answers inside you."
+      },
+      8: {
+        keyword: "Purity / Abundance",
+        essence: "The Powerful / The Abundance",
+        keywords: ["Power", "Abundance", "Authority", "Achievement"],
+        geometry: "Octagon / Infinity (∞)",
+        element: "Earth / Fire",
+        vibration: "Material manifestation, infinite cycle of giving and receiving",
+        arcana: "Justice",
+        light: "Physical strength, mastery of pranic energy and healing through the hands. They are transparent, innocent and capable of materializing great successes.",
+        shadow: "Energy vampirism, disorder, toxic shyness and self-destruction. They can become dependent on others' approval or possessive.",
+        mission: "Wise management of financial and spiritual energy. See purity in everything and plan long-term success without attachment.",
+        lifePathDesc: "Your mission is to master the material world with ethics and abundance. You are the alchemist of prosperity.",
+        dayDesc: "Ideal day for business, finances, taking control and manifesting.",
+        yearDesc: "Year of material harvest. Your efforts yield economic fruits."
+      },
+      9: {
+        keyword: "Realization / Wisdom",
+        essence: "The Humanitarian / The Closure",
+        keywords: ["Universality", "Compassion", "Closure", "Wisdom"],
+        geometry: "Enneagon / Spiral",
+        element: "Fire / Water",
+        vibration: "Completion of the cycle, release and service",
+        arcana: "The Hermit",
+        light: "Impersonal love, lack of judgment, clairvoyance and infinite calm. It is the number of cycle closure and humanitarian culmination.",
+        shadow: "Superficiality, banality, narrow-mindedness and lack of social sensitivity. They can lose depth and become bitter.",
+        mission: "Achieve total realization in service to humanity. Learn to see the subtle and concrete noble ideals without delay.",
+        lifePathDesc: "Your mission is to serve humanity with compassion and universal wisdom. You are the guardian of the cycle.",
+        dayDesc: "Day to close cycles, forgive, let go and serve others.",
+        yearDesc: "Year of closures. Let go of what no longer serves to be reborn."
+      },
+      10: {
+        keyword: "Totality / Leadership",
+        essence: "The Wheel of Fortune",
+        keywords: ["Rebirth", "Total power", "Arrowhead"],
+        geometry: "Complete circle + central point",
+        element: "Ether",
+        vibration: "Internal and external strength in maximum expression",
+        arcana: "Wheel of Fortune",
+        light: "Internal and external strength, quick decision, 'the tip of the arrow'. They are charismatic leaders and initiators of large projects.",
+        shadow: "They crumble totally (all or nothing), aggressiveness, cynicism and paralysis by fear. They can become vengeful before rejection.",
+        mission: "Find their internal source of power. Initiate macro-projects and learn to love themselves to project security to the world.",
+        lifePathDesc: "You possess the full cycle. Your leadership is born from total integration of all vibrations.",
+        dayDesc: "Day of culminations and new beginnings from totality.",
+        yearDesc: "Year of total power. Use your influence with wisdom."
+      },
+      11: {
+        keyword: "Super-consciousness",
+        essence: "The Illuminator / Master Intuition",
+        keywords: ["Intuition", "Inspiration", "Spiritual channel", "Vision"],
+        geometry: "Two parallel columns (portal)",
+        element: "Light",
+        vibration: "Amplified intense vibration — spiritual antenna",
+        arcana: "Strength",
+        light: "Unity with the whole, elevated perception, infinite compassion and direct connection with the Creator. They are ethereal teachers who balance their environment.",
+        shadow: "Internal conflict, inconstancy, panic over commitment and stress from hypersensitivity. They may feel betrayed or live stressed.",
+        mission: "Achieve global supra-consciousness. Integrate Yin and Yang and live their mission as a 'midterm exam' toward light.",
+        lifePathDesc: "You possess an amplified spiritual antenna. You are the channel between the divine and the earthly.",
+        dayDesc: "Day of maximum intuition. Pay attention to the universe's signals.",
+        yearDesc: "Year of illumination. Your perception expands beyond the visible.",
+        isMaster: true,
+        responsibility: "With great vibrational power comes great responsibility to guide others."
+      },
+      22: {
+        keyword: "Master Builder",
+        essence: "The Architect of Collective Destiny",
+        keywords: ["Manifestation", "Global construction", "Massive vision", "Legacy"],
+        geometry: "Double square (supreme structure)",
+        element: "Earth / Ether",
+        vibration: "Construction of cosmic vibration — materializing large-scale visions",
+        arcana: "The Fool",
+        light: "Capacity to materialize large-scale visions. Architect of collective destiny. Combines intuition of 11 with practicality of 4.",
+        shadow: "Frustration for not achieving their grandiose goals. Can fall into megalomania or paralysis due to the magnitude of their vision.",
+        mission: "You must build something that transcends your individual life. Your legacy will impact future generations.",
+        lifePathDesc: "Your mission is to build structures that transform humanity. You are the bridge between vision and reality.",
+        dayDesc: "Day for large-scale planning. Your manifestation capacity is at its peak.",
+        yearDesc: "Year of massive construction. What you create now will be your legacy.",
+        isMaster: true,
+        responsibility: "You must build something that transcends your individual life."
+      },
+      33: {
+        keyword: "Master of Masters",
+        essence: "The Spiritual Tuning Fork",
+        keywords: ["Divine service", "Healing", "Universal love", "Ascension"],
+        geometry: "Vesica Piscis (two overlapping circles)",
+        element: "Pure love",
+        vibration: "Spiritual tuning fork that resonates with all chakras",
+        arcana: "The World",
+        light: "The highest number. Your presence alone heals and elevates. You send vibrations that transform those around you. Unlimited compassion.",
+        shadow: "Extreme sacrifice, martyrdom, exhaustion from giving without limits. Can forget their own needs in service to others.",
+        mission: "Your entire life is an act of service and elevation of consciousness. You are the lighthouse that illuminates others' path.",
+        lifePathDesc: "You are the Master of Masters. Your vibration heals and elevates those around you.",
+        dayDesc: "Day of maximum spiritual connection. Your service transforms lives.",
+        yearDesc: "Year of spiritual ascension. Everything you touch transforms.",
+        isMaster: true,
+        responsibility: "Your entire life is an act of service and elevation of consciousness."
+      }
+    },
+    factors: {
+      essence: "Your most secret identity. Who you are when no one sees you.",
+      karma: "Your social mask. The learning you come to work on with the outside world.",
+      gift: "A free celestial talent granted in this incarnation to help you.",
+      pastLives: "What your soul already mastered in previous lives. Your baggage of wisdom.",
+      mission: "The goal of perfection. The path to your absolute happiness and realization."
+    },
+    universalYear2026: {
+      number: 1,
+      description: "Universal Year 1: After the closure and chaos of 2025 (Year 9), 2026 marks the start of a new 9-year era. It is 'fertile ground' to sow new intentions.",
+      keywords: ["New beginning", "Seed", "Fertile ground", "New era"],
+      advice: "Sow now what you want to harvest in the next 9 years."
+    },
+    pinnacleMeanings: {
+      1: "Pinnacle of independence and leadership. This period requires you to take charge of your life with courage. You will learn to trust yourself and make autonomous decisions.",
+      2: "Pinnacle of cooperation and sensitivity. This period teaches you the art of patience, diplomacy and deep relationships. Bonds will be your greatest teacher.",
+      3: "Pinnacle of creative expression. Your voice, your art and your natural charisma bloom. It is a period of joy, communication and social expansion.",
+      4: "Pinnacle of work and construction. This period demands discipline, order and methodical effort. What you build here will be lasting and meaningful.",
+      5: "Pinnacle of change and freedom. Expect the unexpected. Travels, transformations and new experiences will forge you. Adaptability is your superpower.",
+      6: "Pinnacle of love and responsibility. Family, home and close relationships are at the center. You will heal and be healed through unconditional love.",
+      7: "Pinnacle of introspection and wisdom. A period to withdraw, study and connect with your spirituality. Chosen solitude will reveal deep truths to you.",
+      8: "Pinnacle of power and material abundance. Your efforts materialize in concrete achievements. It is the period to harvest, invest and lead with ethics.",
+      9: "Pinnacle of humanitarian service. Your compassion expands beyond the personal. This period invites you to let go, forgive and serve the greater good.",
+      11: "Master pinnacle of illumination. Your intuition is exponentially amplified. You will be a channel of inspiration for others, but you must manage hypersensitivity.",
+      22: "Master pinnacle of global construction. You have the potential to create something that transcends generations. The vision is immense, but requires titanic discipline."
+    },
+    challengeMeanings: {
+      0: "Challenge of free will. All challenges are present, or none dominate. You must consciously choose which lesson to work on. It is the rarest and most demanding.",
+      1: "Challenge of independence. You struggle with insecurity, dependence on others or fear of leading. Your lesson is to trust your own strength without falling into isolation.",
+      2: "Challenge of sensitivity. Hypersensitivity, jealousy or shyness hold you back. Your lesson is to cooperate without losing your identity and express emotions without fear.",
+      3: "Challenge of expression. You repress your creativity, self-criticize or scatter your energy. Your lesson is to communicate your truth with authenticity and focus.",
+      4: "Challenge of discipline. Laziness, disorder or rigidity limit you. Your lesson is to find the balance between structure and flexibility.",
+      5: "Challenge of freedom. Excesses, impulsivity or fear of change destabilize you. Your lesson is to use freedom with responsibility.",
+      6: "Challenge of responsibility. Perfectionism, control or excessive sacrifice exhaust you. Your lesson is to serve without losing yourself.",
+      7: "Challenge of faith. Extreme skepticism, isolation or emotional repression disconnect you. Your lesson is to trust in what you cannot see.",
+      8: "Challenge of power. Excessive ambition, materialism or fear of failure dominate you. Your lesson is to handle power with ethics and generosity."
+    },
+    maturityMeanings: {
+      1: "Your mature self is an authentic leader. From 40, you will feel a growing drive toward independence, entrepreneurship and innovation.",
+      2: "Your mature self is a wise diplomat. Over the years, cooperation, patience and mediation will become your greatest strengths.",
+      3: "Your mature self is a brilliant communicator. Creative expression, writing, art or teaching will flourish with intensity.",
+      4: "Your mature self is a tireless builder. Your second half of life will be dedicated to creating tangible legacies and solid structures.",
+      5: "Your mature self is a free adventurer. From 40, travel, career changes and reinvention will be your norm.",
+      6: "Your mature self is a home healer. Family, community and loving service will define your purpose in maturity.",
+      7: "Your mature self is a spiritual seeker. Philosophy, meditation and the search for meaning will intensify.",
+      8: "Your mature self is an abundance manifestor. Material success and ethical power will arrive strongly.",
+      9: "Your mature self is a universal humanitarian. Compassion and service will deepen. Your impact will be global.",
+      11: "Your mature self is an amplified spiritual channel. You will be a beacon of light for many.",
+      22: "Your mature self is an architect of legacies. What you build will transcend generations.",
+      33: "Your mature self is the supreme compassionate master. You are the embodiment of unconditional love."
+    },
+    karmicDebtDetails: {
+      13: { title: "Debt 13/4 — Ancestral Laziness", lesson: "In past lives you avoided hard work. Now you must build with discipline.", transmutation: "Embrace discipline as your ally." },
+      14: { title: "Debt 14/5 — Excess of Freedom", lesson: "You abused freedom in previous incarnations. Learn responsibility.", transmutation: "Use your freedom for a higher purpose." },
+      16: { title: "Debt 16/7 — Uncontrolled Ego", lesson: "Your ego dominated previous lives. Cultivate humility.", transmutation: "Accept crashes as gifts for growth." },
+      19: { title: "Debt 19/1 — Misused Power", lesson: "You used your power for domination. Learn leadership from service.", transmutation: "Lead by example and cooperation." }
     }
   }
 };

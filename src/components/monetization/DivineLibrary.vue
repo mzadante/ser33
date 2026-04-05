@@ -1,46 +1,46 @@
 <template>
   <div class="divine-library-wrapper">
     <div class="library-header">
-      <h3 class="title">Biblioteca del Despertar</h3>
-      <p class="subtitle">Herramientas Recomendadas para tu Camino</p>
+      <h3 class="title">{{ $t('results.library.title') }}</h3>
+      <p class="subtitle">{{ $t('results.library.subtitle') }}</p>
     </div>
 
-    <!-- Carrusel Mockup (Contenedores Abstractos) -->
+    <!-- Carrusel de Libros Localizado -->
     <div class="library-carousel">
       
-      <!-- Mock Book 1 -->
+      <!-- Mock Book 1: Kybalion -->
       <div class="book-card-mockup">
         <div class="book-cover type-kybalion">
           <IconMercury :size="64" />
         </div>
         <div class="book-info">
-          <h4>El Kybalión</h4>
-          <span class="author">Tres Iniciados</span>
-          <button class="amazon-btn disabled">Adquirir</button>
+          <h4>{{ $t('results.library.kybalion.title') }}</h4>
+          <span class="author">{{ $t('results.library.kybalion.author') }}</span>
+          <button class="amazon-btn disabled">{{ $t('results.library.acquire') }}</button>
         </div>
       </div>
 
-      <!-- Mock Book 2 -->
+      <!-- Mock Book 2: Grabovoi -->
       <div class="book-card-mockup">
         <div class="book-cover type-grabovoi">
           <IconInfinity :size="64" />
         </div>
         <div class="book-info">
-          <h4>Concentración</h4>
-          <span class="author">Grigori Grabovoi</span>
-          <button class="amazon-btn disabled">Adquirir</button>
+          <h4>{{ $t('results.library.grabovoi.title') }}</h4>
+          <span class="author">{{ $t('results.library.grabovoi.author') }}</span>
+          <button class="amazon-btn disabled">{{ $t('results.library.acquire') }}</button>
         </div>
       </div>
 
-      <!-- Mock Book 3 -->
+      <!-- Mock Book 3: Numerology -->
       <div class="book-card-mockup">
         <div class="book-cover type-numerology">
           <IconSer33Logo :size="64" />
         </div>
         <div class="book-info">
-          <h4>Números Sagrados</h4>
-          <span class="author">Pitágoras</span>
-          <button class="amazon-btn disabled">Adquirir</button>
+          <h4>{{ $t('results.library.pyth.title') }}</h4>
+          <span class="author">{{ $t('results.library.pyth.author') }}</span>
+          <button class="amazon-btn disabled">{{ $t('results.library.acquire') }}</button>
         </div>
       </div>
 
@@ -97,7 +97,6 @@ onMounted(() => {
   justify-content: center;
 }
 
-/* Ocultar scrollbar */
 .library-carousel::-webkit-scrollbar {
   display: none;
 }
@@ -126,23 +125,9 @@ onMounted(() => {
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.book-cover .symbol {
-  font-size: 4rem;
-  color: rgba(212, 175, 55, 0.5);
-  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
-}
-
-.type-kybalion {
-  background: linear-gradient(135deg, #2c1e16 0%, #0a0a0f 100%);
-}
-
-.type-grabovoi {
-  background: linear-gradient(135deg, #161e2c 0%, #0a0a0f 100%);
-}
-
-.type-numerology {
-  background: linear-gradient(135deg, #2c2916 0%, #0a0a0f 100%);
-}
+.type-kybalion { background: linear-gradient(135deg, #2c1e16 0%, #0a0a0f 100%); }
+.type-grabovoi { background: linear-gradient(135deg, #161e2c 0%, #0a0a0f 100%); }
+.type-numerology { background: linear-gradient(135deg, #2c2916 0%, #0a0a0f 100%); }
 
 .book-info {
   padding: 1.5rem;

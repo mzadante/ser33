@@ -23,6 +23,7 @@
     "destiny": "Número de Destino",
     "destinyDesc": "Tu Meta Final",
     "resetBtn": "Consultar Otra Alma",
+    "downloadBtn": "Descargar Manual Completo (Master Asset)",
     "tantricTitle": "Mapa Tántrico Omkin Kay",
     "tantricDesc": "Tus 5 Factores de Consciencia",
     "pythagorasTitle": "El Teorema de Pitágoras del Destino",
@@ -44,6 +45,62 @@
       "simpleDesc": "El Valor del Lenguaje (A=1...Z=26)",
       "hebrew": "Código Hebreo",
       "hebrewDesc": "Sintonía con el Áleph-Bet Sagrado"
+    },
+    "advanced": {
+      "title": "Códices de Sabiduría Avanzada",
+      "subtitle": "Dimensiones profundas de tu arquitectura álmica y ciclos temporales.",
+      "personalYear": "Año Personal {year}",
+      "maturity": "Número de Madurez",
+      "maturitySubtitle": "Tu Cosecha de Vida",
+      "pinnacles": "Tus 4 Cimas de Realización (Pinnacles)",
+      "pinnaclesDesc": "Momentos de máxima oportunidad y florecimiento en tu vida.",
+      "challenges": "Tus 4 Desafíos de Evolución",
+      "challengesDesc": "Obstáculos que tu alma eligió para fortalecer su maestría.",
+      "hiddenPassion": "Pasión Oculta",
+      "subconsciousSelf": "Yo Subconsciente",
+      "karmicAlert": "Aviso de Deuda Kármica",
+      "currentStage": "Etapa Actual",
+      "favors": "FAVORECE",
+      "avoids": "EVITA",
+      "detectedIn": "Detectada en",
+      "transmutation": "Transmutación",
+      "age": "Edad",
+      "pinnacleNames": ["1er Pinnacle", "2do Pinnacle", "3er Pinnacle", "4to Pinnacle"],
+      "challengeNames": ["1er Desafío", "2do Desafío", "Desafío Principal", "4to Desafío"]
+    },
+    "viewInterpretation": "Ver interpretación",
+    "number": "Número",
+    "light": "Vibración en Luz",
+    "shadow": "Vibración en Sombra",
+    "mission": "Tarea Evolutiva",
+    "closeWisdom": "Cerrar Sabiduría",
+    "activationTitle": "Activación y Creación Diaria",
+    "activationDesc": "Repite estos códigos para sintonizar tu realidad con la abundancia y la salud.",
+    "tuning": "Sintonizando...",
+    "tune": "Sintonizar",
+    "ritualDesc": "<strong>Ritual Tántrico Sugerido:</strong> Realiza la respiración 8-4-8-4 mientras visualizas tu número de Misión ({mission}) rodeado de luz dorada.",
+    "solfeggioTitle": "Frecuencia Solfeggio",
+    "glossaryTitle": "Glosario de Sabiduría",
+    "glossaryDesc": "Entiende las tecnologías de consciencia que estamos utilizando.",
+    "glossaryPyth": {
+      "title": "Numerología Pitagórica",
+      "desc": "Mapeo de la personalidad y el destino a través del valor vibratorio de las letras y la fecha."
+    },
+    "glossaryOmkin": {
+      "title": "Omkin Kay (Tántrica)",
+      "desc": "Un sistema de 5 factores que revela tu esencia profunda, tu karma, tus dones y tu misión."
+    },
+    "glossaryFreq": {
+      "title": "Frecuencias Solfeggio",
+      "desc": "Tonos electromagnéticos antiguos utilizados para armonizar cuerpo y mente (ej. 528Hz para transformación)."
+    },
+    "library": {
+      "title": "Biblioteca del Despertar",
+      "subtitle": "Herramientas Recomendadas para tu Camino",
+      "acquire": "Adquirir",
+      "kybalion": { "title": "El Kybalión", "author": "Tres Iniciados" },
+      "grabovoi": { "title": "Concentración", "author": "Grigori Grabovoi" },
+      "pyth": { "title": "Números Sagrados", "author": "Pitágoras" }
     }
   }
 }

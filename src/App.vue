@@ -40,6 +40,12 @@
           v-if="results.gematria" 
           :data="results.gematria" 
         />
+
+        <AdvancedNumerologySection
+          v-if="results.advanced"
+          :data="results.advanced"
+          :birthYear="results.birthYear"
+        />
         
         <DivineLibrary />
       </div>
@@ -52,7 +58,8 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import CosmicBackground from './components/layout/CosmicBackground.vue';
 import GlassHeader from './components/ui/GlassHeader.vue';
 import GoldenSphere from './components/GoldenSphere.vue';
@@ -70,42 +77,56 @@ import {
 
 import { useNumerologyOmkin } from './composables/useNumerologyOmkin.js';
 import { useGematria } from './composables/useGematria.js';
+import { useAdvancedNumerology } from './composables/useAdvancedNumerology.js';
 import { useAudioSynthesis } from './composables/useAudioSynthesis.js';
 import { interpretations } from './data/interpretations.js';
 import GematriaSection from './components/views/GematriaSection.vue';
+import AdvancedNumerologySection from './components/views/AdvancedNumerologySection.vue';
 
+const { locale } = useI18n();
 const { calculateOmkin } = useNumerologyOmkin();
 const { getGematriaReport } = useGematria();
+const { getAdvancedReport } = useAdvancedNumerology();
 const { playFrequency, playLifeScore } = useAudioSynthesis();
 
 const formData = reactive({
-  computedName: ''
+  computedName: '',
+  birthDate: ''
 });
 
 const results = ref(null);
 const selectedNumber = ref(null);
 
+const currentLang = computed(() => locale.value || 'es');
+
 const handleCalculation = (data) => {
   formData.computedName = data.fullName;
+  formData.birthDate = data.birthDate;
   
   const [year, month, day] = data.birthDate.split('-').map(Number);
   
   const soul = calcSoulNumber(data.fullName);
   const personality = calcPersonalityNumber(data.fullName);
+  const lifePath = calcLifePath(day, month, year);
+  const destinyNumber = calcDestinyNumber(soul, personality);
   const omkin = calculateOmkin(data.birthDate);
   
   results.value = {
-    lifePath: calcLifePath(day, month, year),
+    lifePath,
     soulNumber: soul,
     personalityNumber: personality,
-    destinyNumber: calcDestinyNumber(soul, personality),
-    omkin: omkin,
-    gematria: getGematriaReport(data.fullName)
+    destinyNumber,
+    omkin,
+    gematria: getGematriaReport(data.fullName),
+    advanced: getAdvancedReport(day, month, year, data.fullName, lifePath, destinyNumber),
+    birthDay: day,
+    birthMonth: month,
+    birthYear: year
   };
 };
 
 const openNumberDetail = ({ value, context, contextLabel, contextDescription }) => {
-  const numData = interpretations.es.numbers[value];
+  const numData = interpretations[currentLang.value].numbers[value];
   if (!numData) return;
   
   selectedNumber.value = {

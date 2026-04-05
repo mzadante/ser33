@@ -45,6 +45,62 @@
       "simpleDesc": "The Value of Language (A=1...Z=26)",
       "hebrew": "Hebrew Code",
       "hebrewDesc": "Tuned to the Sacred Aleph-Bet"
+    },
+    "advanced": {
+      "title": "Advanced Wisdom Codices",
+      "subtitle": "Deep dimensions of your soul architecture and temporal cycles.",
+      "personalYear": "Personal Year {year}",
+      "maturity": "Maturity Number",
+      "maturitySubtitle": "Your Life Harvest",
+      "pinnacles": "Your 4 Realization Pinnacles",
+      "pinnaclesDesc": "Maximum opportunity and flourishing moments in your life.",
+      "challenges": "Your 4 Evolution Challenges",
+      "challengesDesc": "Obstacles your soul chose to strengthen its mastery.",
+      "hiddenPassion": "Hidden Passion",
+      "subconsciousSelf": "Subconscious Self",
+      "karmicAlert": "Karmic Debt Notice",
+      "currentStage": "Current Stage",
+      "favors": "FAVORS",
+      "avoids": "AVOID",
+      "detectedIn": "Detected in",
+      "transmutation": "Transmutation",
+      "age": "Age",
+      "pinnacleNames": ["1st Pinnacle", "2nd Pinnacle", "3rd Pinnacle", "4th Pinnacle"],
+      "challengeNames": ["1st Challenge", "2nd Challenge", "Main Challenge", "4th Challenge"]
+    },
+    "viewInterpretation": "View Interpretation",
+    "number": "Number",
+    "light": "Light Vibration",
+    "shadow": "Shadow Vibration",
+    "mission": "Evolutionary Task",
+    "closeWisdom": "Close Wisdom",
+    "activationTitle": "Daily Activation & Creation",
+    "activationDesc": "Repeat these codes to tune your reality with abundance and health.",
+    "tuning": "Tuning...",
+    "tune": "Tune",
+    "ritualDesc": "<strong>Suggested Tantric Ritual:</strong> Perform 8-4-8-4 breathing while visualizing your Mission number ({mission}) surrounded by golden light.",
+    "solfeggioTitle": "Solfeggio Frequency",
+    "glossaryTitle": "Wisdom Glossary",
+    "glossaryDesc": "Understand the consciousness technologies we are using.",
+    "glossaryPyth": {
+      "title": "Pythagorean Numerology",
+      "desc": "Mapping of personality and destiny through the vibratory value of letters and dates."
+    },
+    "glossaryOmkin": {
+      "title": "Omkin Kay (Tantric)",
+      "desc": "A 5-factor system revealing your deep essence, karma, gifts, and soul mission."
+    },
+    "glossaryFreq": {
+      "title": "Solfeggio Frequencies",
+      "desc": "Ancient electromagnetic tones used to harmonize body and mind (e.g., 528Hz for transformation)."
+    },
+    "library": {
+      "title": "Library of Awakening",
+      "subtitle": "Recommended Tools for your Journey",
+      "acquire": "Acquire",
+      "kybalion": { "title": "The Kybalion", "author": "Three Initiates" },
+      "grabovoi": { "title": "Concentration", "author": "Grigori Grabovoi" },
+      "pyth": { "title": "Sacred Numbers", "author": "Pythagoras" }
     }
   }
 }
