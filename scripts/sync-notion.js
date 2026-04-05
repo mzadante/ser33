@@ -120,8 +120,10 @@ async function run() {
   const historyDir = path.resolve('.agents', 'history');
   
   await appendMarkdownToNotion(path.join(historyDir, 'project_status.md'));
+  await appendMarkdownToNotion(path.join(historyDir, 'changelog.md'));
+  await appendMarkdownToNotion(path.join(historyDir, 'session_lessons.md'));
   
-  console.log("🎉 Documentación enviada al Notion del equipo.");
+  console.log("🎉 Documentación enviada al Notion del equipo (Status, Changelog, Lessons).");
 }
 
 run();
