@@ -6,8 +6,17 @@
       <p class="subtitle">{{ computedName }}</p>
       
       <div class="header-actions">
-        <button class="btn-gold download-btn" @click="handleDownload">
-          <IconBase :size="16" /> {{ $t('results.downloadBtn') }}
+        <SoulCardGenerator 
+          :userName="computedName"
+          :birthDate="results.rawDate"
+          :lifePathValue="results.lifePath"
+          :soulValue="results.soulNumber"
+          :destinyValue="results.destinyNumber"
+          :essenceText="getEssenceText(results.lifePath)"
+        />
+        <button class="btn-gold download-btn" @click="handleDownload" :disabled="isGenerating">
+          <span v-if="isGenerating">{{ $t('results.soulCard.generating') }}...</span>
+          <span v-else><IconBase :size="16" /> {{ $t('results.downloadBtn') }}</span>
         </button>
       </div>
 
@@ -186,6 +195,7 @@ import { interpretations } from '../../data/interpretations.js';
 import { IconArrowRight, IconExpand, IconCollapse, IconSolfeggio, IconBase } from '../icons';
 import { usePdfGenerator } from '../../composables/usePdfGenerator.js';
 import { GRABOVOI_SEQUENCES } from '../../data/grabovoiCatalog.js';
+import SoulCardGenerator from '../ui/SoulCardGenerator.vue';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -226,6 +236,11 @@ const glossaryItems = computed(() => [
 const getKeyword = (num) => {
   const data = interpretations[currentLang.value].numbers[num];
   return data ? data.keyword : '';
+};
+
+const getEssenceText = (num) => {
+  const data = interpretations[currentLang.value].numbers[num];
+  return data ? data.essence : '';
 };
 
 const emitViewNumber = (value, context, contextLabel, contextDescription) => {

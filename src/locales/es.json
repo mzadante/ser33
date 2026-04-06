@@ -24,6 +24,10 @@
     "destinyDesc": "Tu Meta Final",
     "resetBtn": "Consultar Otra Alma",
     "downloadBtn": "Descargar Manual Completo (Master Asset)",
+    "soulCard": {
+      "button": "Descargar mi Soul Card",
+      "generating": "Creando Arte Digital"
+    },
     "tantricTitle": "Mapa Tántrico Omkin Kay",
     "tantricDesc": "Tus 5 Factores de Consciencia",
     "pythagorasTitle": "El Teorema de Pitágoras del Destino",
