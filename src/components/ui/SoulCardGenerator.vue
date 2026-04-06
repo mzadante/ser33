@@ -1,14 +1,19 @@
 <template>
   <div class="soul-card-generator">
-    <button @click="generateAndDownload" class="btn-primary share-btn" :disabled="isGenerating">
+    <button v-if="!finalDownloadUrl" @click="generateAndPrepare" class="btn-gold" style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; width: auto;" :disabled="isGenerating">
       <span v-if="isGenerating">{{ $t('results.soulCard.generating') }}...</span>
       <span v-else>✨ {{ $t('results.soulCard.button') }}</span>
     </button>
 
-    <!-- Canvas Template (Hidden but rendered for html2canvas) -->
-    <div style="position: absolute; overflow: hidden; height: 0; width: 0;">
+    <a v-else :href="finalDownloadUrl" :download="finalFilename" class="btn-gold" style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; width: auto; text-decoration: none;">
+      <span>📥 Haz clic para guardar (PNG)</span>
+    </a>
+
+    <!-- Canvas Template (Oculto vía opacidad 0 en posición fija, para asegurar dimensiones físicas exactas del DOM) -->
+    <div id="soul-card-offscreen-wrapper" style="position: fixed; top: 0; left: 0; opacity: 0; pointer-events: none; z-index: -9999;">
       <div 
-        ref="cardRef" 
+        ref="cardRef"
+        id="soul-card-capture"
         class="soul-card-template"
         :style="{ backgroundImage: `url(${bgImage})` }"
       >
@@ -64,33 +69,64 @@ const props = defineProps({
 
 const cardRef = ref(null);
 const isGenerating = ref(false);
+const finalDownloadUrl = ref(null);
+const finalFilename = ref("");
 const bgImage = ref(bgImageSrc);
 
-const generateAndDownload = async () => {
+const generateAndPrepare = async () => {
   if (!cardRef.value) return;
   isGenerating.value = true;
   
   try {
-    // Renderear con html2canvas asegurando estilos oscuros y transparentes
+    // Renderear con html2canvas utilizando el DOM Clonado para manipular la visibilidad sin afectar la UI real
     const canvas = await html2canvas(cardRef.value, {
-      scale: 2, // Alta calidad para retina displays/Instagram
+      scale: 2,
       useCORS: true,
-      backgroundColor: '#0a0a0f'
+      allowTaint: true,
+      backgroundColor: '#0a0a0f',
+      onclone: (documentClone) => {
+        const wrapper = documentClone.getElementById('soul-card-offscreen-wrapper');
+        if (wrapper) {
+          // Encendemos la opacidad solo en el clon de la foto, reteniendo su física intacta para el degradado
+          wrapper.style.opacity = '1';
+        }
+      }
     });
     
-    const image = canvas.toDataURL("image/png", 1.0);
-    const link = document.createElement('a');
-    
-    const safeName = (props.userName || 'user').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '_');
-    link.download = `SoulCard_ser33_${safeName}.png`;
-    link.href = image;
-    link.click();
+    // Extracción limpia a Blob nativo
+    canvas.toBlob((blob) => {
+      if (!blob) {
+        console.error("El canvas falló al empaquetar el objeto BLOB.");
+        isGenerating.value = false;
+        return;
+      }
+      
+      const safeName = (props.userName || 'user')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-zA-Z0-9]/g, '_');
+        
+      const fileUrl = window.URL.createObjectURL(blob);
+      
+      // En vez de simular el click, activamos el botón de descarga nativo final
+      finalFilename.value = `SoulCard_ser33_${safeName}.png`;
+      finalDownloadUrl.value = fileUrl;
+      
+      isGenerating.value = false;
+      
+      // Auto-revertir el botón a su estado original luego de 1 minuto para prevenir pérdida de memoria
+      setTimeout(() => {
+        if (finalDownloadUrl.value === fileUrl) {
+           window.URL.revokeObjectURL(fileUrl);
+           finalDownloadUrl.value = null;
+        }
+      }, 60000);
+      
+    }, "image/png", 1.0);
+
   } catch (error) {
     console.error("Error generando la Soul Card:", error);
-  } finally {
-    setTimeout(() => {
-      isGenerating.value = false;
-    }, 1000);
+    isGenerating.value = false;
   }
 };
 </script>
@@ -98,31 +134,6 @@ const generateAndDownload = async () => {
 <style scoped>
 .soul-card-generator {
   display: inline-block;
-}
-
-.share-btn {
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(139, 115, 36, 0.4) 100%);
-  border: 1px solid var(--gold-glow);
-  color: var(--text-main);
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-family: var(--font-mistic);
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
-}
-
-.share-btn:hover {
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.3) 0%, rgba(139, 115, 36, 0.6) 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
-}
-
-.share-btn:disabled {
-  opacity: 0.7;
-  cursor: wait;
 }
 
 /* Plantilla de Tarjeta para Generación Estática (Ancho/Alto fijo para Instagram Stories ratio aproximado 9:16) */

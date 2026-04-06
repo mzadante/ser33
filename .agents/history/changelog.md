@@ -5,6 +5,16 @@
 
 ---
 
+## 2026-04-05 — Sesión 8: Motor Gráfico Social, Soul Cards y Patrones UI 🎨
+- `[feat]` **Soul Cards Dinámicas**: Implementado el módulo `SoulCardGenerator.vue` con `html2canvas` para crear imágenes ricas 9:16 listas para Instagram (Phase 1 Growth).
+- `[fix]` **Blindaje de Descarga Asíncrona**: Implementación del "Patrón de Descarga en 2 Pasos" (Async User-Gesture Bypass) usando `canvas.toBlob()` nativo para asegurar la extensión PNG.
+- `[fix]` **Crash de HTML2Canvas**: Reparado `addColorStop non-finite` colocando el lienzo oculto en posición física real `fixed` y modulando la visibilidad mediante callback virtual `onclone`.
+- `[refactor]` **CSS Architecture**: Inyectadas reglas globales y flexbox directos al Dashboard para resolver el colapso visual de los botones de descarga.
+- `[docs]` **Agent SKILL de UI/UX**: Creado `.agents/skills/frontend_ui_standards/SKILL.md` para dotar de memoria a los agentes sobre reglas de vidrio, escalas y uso imperativo del `.webp`.
+- `[perf]` **Optimización de Repositorio**: Conversión total del banco de imágenes (sol, luna y assets pesados) a webp, aligerando drásticamente el peso del repo en github.
+
+---
+
 ## 2026-04-05 — Sesión 7: Internacionalización Total y Estabilidad de Reportes 🌍
 - `[feat]` **i18n Global (EN/ES)**: Traducción completa de la Biblioteca del Despertar, glosarios, sufijos (1st, 2nd, etc.) e interpretaciones avanzadas — `es.json`, `en.json`, `interpretations.js`, `pdfContent.js`.
 - `[fix]` **Estabilización del Motor PDF**: Solución al fallo de descarga de `blob:` mediante descarga forzada por enlace y `doc.save()` nativo — `usePdfGenerator.js`.

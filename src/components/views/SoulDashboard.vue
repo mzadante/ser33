@@ -361,7 +361,12 @@ const resetForm = () => {
 }
 
 .header-actions {
-  margin: 1rem 0;
+  margin: 1.5rem 0;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .download-btn {
