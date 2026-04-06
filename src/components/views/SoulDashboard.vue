@@ -54,7 +54,7 @@
       
       <div class="tantric-layout">
         <div class="pentagon-visual-container">
-          <img src="@/assets/omkin_factors_2.png" alt="Pentágono Omkin" class="pentagon-img" />
+          <img src="@/assets/omkin_factors_2.webp" alt="Pentágono Omkin" class="pentagon-img" />
         </div>
         
         <div class="factors-grid">
@@ -279,7 +279,7 @@ const closeFactor = () => {
 
 const getStageImage = () => {
   const lang = currentLang.value;
-  return new URL(`../../assets/stages_${lang}.png`, import.meta.url).href;
+  return new URL(`../../assets/stages_${lang}.webp`, import.meta.url).href;
 };
 
 onMounted(() => {

@@ -50,7 +50,7 @@ onMounted(() => {
   border-radius: 50%;
   position: relative;
   /* El estilo visual de geometría sagrada real */
-  background: url('@/assets/omkin_sphere.png') center/cover no-repeat;
+  background: url('@/assets/omkin_sphere.webp') center/cover no-repeat;
   box-shadow: 
     0 0 50px var(--gold-glow),
     inset 0 0 40px rgba(0,0,0,0.8);
@@ -61,7 +61,7 @@ onMounted(() => {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
   border-radius: 50%;
-  background: url('@/assets/energy_texture.png') center/cover;
+  background: url('@/assets/energy_texture.webp') center/cover;
   opacity: 0.25;
   mix-blend-mode: color-dodge;
   animation: rotate-slow 60s linear infinite;

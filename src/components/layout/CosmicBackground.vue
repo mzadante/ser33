@@ -73,7 +73,7 @@ onMounted(() => {
   left: -10%;
   width: 120%;
   height: 120%;
-  background: url('@/assets/cosmic_bg_2.png') center/cover no-repeat;
+  background: url('@/assets/cosmic_bg_2.webp') center/cover no-repeat;
   filter: brightness(0.7);
 }
 

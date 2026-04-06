@@ -91,7 +91,7 @@ const submitForm = () => {
   width: 110%;
   margin-left: -5%;
   height: 180px;
-  background: url('@/assets/destiny_portal.png') center/cover no-repeat;
+  background: url('@/assets/destiny_portal.webp') center/cover no-repeat;
   margin-bottom: 2rem;
   border-bottom: 1px solid var(--gold-glow);
   mask-image: linear-gradient(to bottom, black 80%, transparent 100%);

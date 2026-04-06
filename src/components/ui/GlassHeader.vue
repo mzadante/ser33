@@ -1,8 +1,12 @@
 <template>
   <header class="glass-header">
     <div class="logo-container">
-      <h1 class="title">{{ $t('app.title') }}<span class="gold-text">33</span></h1>
-      <p class="subtitle">{{ $t('app.subtitle') }}</p>
+      <div class="logo-wrapper">
+        <h1 class="title">
+          <span class="ser-text">ser</span>
+          <span class="gold-text">33</span>
+        </h1>
+      </div>
     </div>
     <div class="lang-selector">
       <select v-model="currentLocale" @change="changeLanguage" class="glass-select">
@@ -57,25 +61,44 @@ onMounted(() => {
   gap: 10px;
 }
 
-.title {
-  font-family: var(--font-mistic);
-  font-size: 1.8rem;
-  color: var(--text-main);
-  margin: 0;
-  letter-spacing: 2px;
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.subtitle {
-  font-family: var(--font-primary);
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.6);
-  letter-spacing: 3px;
-  text-transform: uppercase;
+.logo-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.title {
+  font-family: var(--font-mistic);
+  font-size: 2.2rem;
+  color: var(--text-main);
   margin: 0;
+  letter-spacing: 1px;
+  font-weight: 300;
+  display: flex;
+  align-items: baseline;
+}
+
+.ser-text {
+  text-transform: lowercase;
+  opacity: 0.9;
 }
 
 .gold-text {
-  color: var(--gold-radiant);
+  color: transparent;
+  background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 600;
+  margin-left: 2px;
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  font-family: var(--font-primary);
+  letter-spacing: 0px;
 }
 
 .glass-select {
