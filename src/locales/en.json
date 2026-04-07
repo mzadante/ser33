@@ -10,7 +10,9 @@
     "nameLabel": "Full Name",
     "namePlaceholder": "E.g., Nikola Tesla",
     "dateLabel": "Birth Date",
-    "submitBtn": "Start Synchronization"
+    "submitBtn": "Start Synchronization",
+    "errorName": "Please enter only letters and spaces.",
+    "errorDate": "Please enter a valid birth date in the past."
   },
   "results": {
     "title": "Your Soul Barcode",

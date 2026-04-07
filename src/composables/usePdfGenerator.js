@@ -4,12 +4,9 @@
 // Localization: Support for ES and EN
 // ═══════════════════════════════════════════════════════════════════
 
-import { jsPDF } from 'jspdf';
 import { interpretations } from '../data/interpretations.js';
 import { PDF_CONTENT } from '../data/pdfContent.js';
 import { GRABOVOI_SEQUENCES } from '../data/grabovoiCatalog.js';
-import { CormorantGaramond_Bold } from '../assets/fonts/CormorantGaramond_Bold.js';
-import { Montserrat_Regular } from '../assets/fonts/Montserrat_Regular.js';
 import i18n from '../i18n.js';
 
 function getLocale() {
@@ -49,7 +46,7 @@ const CONTENT_W = PAGE_W - MARGIN.left - MARGIN.right;
 // HELPER FUNCTIONS
 // ═══════════════════════════════════════════════════════════════════
 
-function registerFonts(doc) {
+function registerFonts(doc, CormorantGaramond_Bold, Montserrat_Regular) {
   doc.addFileToVFS('CormorantGaramond-Bold.ttf', CormorantGaramond_Bold);
   doc.addFont('CormorantGaramond-Bold.ttf', 'Cormorant', 'bold');
   doc.addFileToVFS('Montserrat-Regular.ttf', Montserrat_Regular);
@@ -801,8 +798,14 @@ function buildBackCover(doc, lang = 'es') {
 export function usePdfGenerator() {
   const generateManual = async (results, userName) => {
     const lang = getLocale();
+    
+    // Lazy load heavy dependencies
+    const { jsPDF } = await import('jspdf');
+    const { CormorantGaramond_Bold } = await import('../assets/fonts/CormorantGaramond_Bold.js');
+    const { Montserrat_Regular } = await import('../assets/fonts/Montserrat_Regular.js');
+    
     const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
-    registerFonts(doc);
+    registerFonts(doc, CormorantGaramond_Bold, Montserrat_Regular);
 
     const birthDate = `${results.birthYear}-${String(results.birthMonth).padStart(2, '0')}-${String(results.birthDay).padStart(2, '0')}`;
 

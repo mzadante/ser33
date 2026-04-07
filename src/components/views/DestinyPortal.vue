@@ -7,6 +7,8 @@
       <p class="instruction">{{ $t('form.instruction') }}</p>
       
       <form @submit.prevent="submitForm" class="destiny-form">
+        <div v-if="errorMsg" class="error-message">{{ errorMsg }}</div>
+        
         <div class="input-group">
           <label for="fullName">{{ $t('form.nameLabel') }}</label>
           <input 
@@ -37,10 +39,13 @@
 <script setup>
 import { reactive, ref, onMounted } from 'vue';
 import gsap from 'gsap';
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n();
 const emit = defineEmits(['calculate']);
 const portalRef = ref(null);
 const visualRef = ref(null);
+const errorMsg = ref('');
 
 const localData = reactive({
   fullName: '',
@@ -61,6 +66,21 @@ onMounted(() => {
 });
 
 const submitForm = () => {
+  errorMsg.value = '';
+  
+  const nameRegex = /^[a-zA-Z\s\u00C0-\u017F]+$/;
+  if (!localData.fullName || !nameRegex.test(localData.fullName.trim())) {
+    errorMsg.value = t('form.errorName');
+    return;
+  }
+
+  const birthDateObj = new Date(localData.birthDate);
+  const now = new Date();
+  if (!localData.birthDate || isNaN(birthDateObj.getTime()) || birthDateObj > now) {
+    errorMsg.value = t('form.errorDate');
+    return;
+  }
+
   // Ocultar suavemente
   gsap.to([portalRef.value, visualRef.value], {
     opacity: 0,
@@ -125,5 +145,15 @@ const submitForm = () => {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 600;
+}
+
+.error-message {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  text-align: center;
 }
 </style>

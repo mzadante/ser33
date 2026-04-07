@@ -55,7 +55,7 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import html2canvas from 'html2canvas';
+// html2canvas importado dinámicamente
 import bgImageSrc from '@/assets/El Lienzo del Alma.webp';
 
 const props = defineProps({
@@ -78,6 +78,8 @@ const generateAndPrepare = async () => {
   isGenerating.value = true;
   
   try {
+    const html2canvas = (await import('html2canvas')).default;
+    
     // Renderear con html2canvas utilizando el DOM Clonado para manipular la visibilidad sin afectar la UI real
     const canvas = await html2canvas(cardRef.value, {
       scale: 2,

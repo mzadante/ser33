@@ -10,7 +10,9 @@
     "nameLabel": "Nombre Completo",
     "namePlaceholder": "Ej. Nikola Tesla",
     "dateLabel": "Fecha de Nacimiento",
-    "submitBtn": "Iniciar Sincronización"
+    "submitBtn": "Iniciar Sincronización",
+    "errorName": "Ingresa solo letras (se permiten espacios).",
+    "errorDate": "Ingresa una fecha de nacimiento válida en el pasado."
   },
   "results": {
     "title": "Tu Código de Barras Álmico",
