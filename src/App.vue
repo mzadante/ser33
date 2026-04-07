@@ -26,6 +26,8 @@ import { useI18n } from 'vue-i18n';
 import CosmicBackground from './components/layout/CosmicBackground.vue';
 import GlassHeader from './components/ui/GlassHeader.vue';
 import GoldenSphere from './components/GoldenSphere.vue';
+
+const { t } = useI18n();
 </script>
 
 <style>
