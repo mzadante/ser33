@@ -46,9 +46,12 @@ const handleCalculation = (data) => {
     advanced: getAdvancedReport(day, month, year, data.fullName, lifePath, destinyNumber),
     birthDay: day,
     birthMonth: month,
-    birthYear: year
+    birthYear: year,
+    rawDate: data.birthDate,
+    fullName: data.fullName
   };
 
+  console.log('Calculating results for:', data.fullName, results);
   store.setResults(results);
   router.push('/results');
 };

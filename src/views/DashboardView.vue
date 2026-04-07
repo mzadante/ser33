@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { onMounted, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { useNumerologyStore } from '../stores/numerology';
 import { useAudioSynthesis } from '../composables/useAudioSynthesis';
@@ -48,9 +48,12 @@ const { locale } = useI18n();
 const results = computed(() => store.results);
 const computedName = computed(() => store.formData.computedName);
 
-if (!results.value) {
-  router.replace('/');
-}
+onMounted(() => {
+  if (!results.value) {
+    console.warn('No results found in store, redirecting home...');
+    router.replace('/');
+  }
+});
 
 const resetForm = () => {
   store.clearResults();
