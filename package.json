@@ -10,8 +10,6 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@notionhq/client": "^5.16.0",
-    "dotenv": "^17.4.0",
     "gsap": "^3.14.2",
     "html2canvas": "^1.4.1",
     "jspdf": "^4.2.1",
@@ -19,7 +17,9 @@
     "vue-i18n": "^9.14.5"
   },
   "devDependencies": {
+    "@notionhq/client": "^5.16.0",
     "@vitejs/plugin-vue": "^6.0.5",
+    "dotenv": "^17.4.0",
     "sharp": "^0.34.5",
     "vite": "^8.0.1",
     "vitest": "^4.1.2"

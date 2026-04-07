@@ -4,7 +4,7 @@
     <section class="hero-section">
       <span class="watermark-number">{{ number }}</span>
       <div class="hero-content" ref="heroContent">
-        <span class="hero-tag" v-if="data.isMaster"><IconMasterStar :size="14" class="inline-icon" /> NÚMERO MAESTRO <IconMasterStar :size="14" class="inline-icon" /></span>
+        <span class="hero-tag" v-if="data.isMaster"><IconMasterStar :size="14" class="inline-icon" /> {{ $t('results.masterNumber') }} <IconMasterStar :size="14" class="inline-icon" /></span>
         <h1 class="hero-keyword">{{ data.keyword }}</h1>
         <p class="hero-essence">{{ data.essence }}</p>
         <div class="hero-meta">
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="scroll-indicator">
-        <span class="scroll-text">Descubre tu vibración</span>
+        <span class="scroll-text">{{ $t('results.discoverVibration') }}</span>
         <span class="scroll-arrow"><IconScrollDown :size="28" :animated="true" /></span>
       </div>
     </section>
@@ -39,7 +39,7 @@
     <section class="interpretation-section reveal-block">
       <div class="interp-card light-card">
         <div class="interp-icon"><IconSunLight :size="32" :glow="true" /></div>
-        <h3>Vibración en Luz</h3>
+        <h3>{{ $t('results.light') }}</h3>
         <p>{{ data.light }}</p>
       </div>
     </section>
@@ -48,7 +48,7 @@
     <section class="interpretation-section reveal-block">
       <div class="interp-card shadow-card">
         <div class="interp-icon"><IconMoonShadow :size="32" :glow="true" /></div>
-        <h3>Vibración en Sombra</h3>
+        <h3>{{ $t('results.shadow') }}</h3>
         <p>{{ data.shadow }}</p>
       </div>
     </section>
@@ -57,28 +57,28 @@
     <section class="interpretation-section reveal-block">
       <div class="interp-card mission-card">
         <div class="interp-icon"><IconTargetMission :size="32" :glow="true" /></div>
-        <h3>Tu Tarea Evolutiva</h3>
+        <h3>{{ $t('results.mission') }}</h3>
         <p>{{ data.mission }}</p>
       </div>
     </section>
 
     <!-- Herramientas de Activación -->
     <section class="activation-section reveal-block">
-      <h3 class="section-title">Herramientas de Activación</h3>
+      <h3 class="section-title">{{ $t('results.activationTools') }}</h3>
       <div class="activation-grid">
         <div class="activation-item">
-          <span class="act-label">Frecuencia Solfeggio</span>
+          <span class="act-label">{{ $t('results.solfeggioFreq') }}</span>
           <span class="act-value">{{ solfeggioHz }} Hz</span>
           <button class="btn-gold mini-btn" @click="$emit('playFrequency', solfeggioHz)">
-            Sintonizar
+            {{ $t('results.tune') }}
           </button>
         </div>
         <div class="activation-item">
-          <span class="act-label">Día ideal para este número</span>
+          <span class="act-label">{{ $t('results.idealDay') }}</span>
           <p class="act-desc">{{ data.dayDesc }}</p>
         </div>
         <div class="activation-item">
-          <span class="act-label">Año personal bajo esta vibración</span>
+          <span class="act-label">{{ $t('results.personalYearUnderVibration') }}</span>
           <p class="act-desc">{{ data.yearDesc }}</p>
         </div>
       </div>
@@ -87,7 +87,7 @@
     <!-- Responsabilidad Maestra -->
     <section class="master-section reveal-block" v-if="data.isMaster">
       <div class="master-box">
-        <h3><IconLightning :size="20" class="inline-icon" /> Responsabilidad del Número Maestro</h3>
+        <h3><IconLightning :size="20" class="inline-icon" /> {{ $t('results.masterResponsibility') }}</h3>
         <p>{{ data.responsibility }}</p>
       </div>
     </section>
@@ -95,7 +95,7 @@
     <!-- Botón de Retorno -->
     <section class="return-section">
       <button class="btn-gold outline-btn" @click="$emit('back')">
-        ← Volver a tu Mapa
+        {{ $t('results.backToMap') }}
       </button>
     </section>
   </div>

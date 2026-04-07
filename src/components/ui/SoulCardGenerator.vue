@@ -2,11 +2,11 @@
   <div class="soul-card-generator">
     <button v-if="!finalDownloadUrl" @click="generateAndPrepare" class="btn-gold" style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; width: auto;" :disabled="isGenerating">
       <span v-if="isGenerating">{{ $t('results.soulCard.generating') }}...</span>
-      <span v-else>✨ {{ $t('results.soulCard.button') }}</span>
+      <span v-else>{{ $t('results.soulCard.button') }}</span>
     </button>
 
     <a v-else :href="finalDownloadUrl" :download="finalFilename" class="btn-gold" style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; width: auto; text-decoration: none;">
-      <span>📥 Haz clic para guardar (PNG)</span>
+      <span>{{ $t('results.savePng') }}</span>
     </a>
 
     <!-- Canvas Template (Oculto vía opacidad 0 en posición fija, para asegurar dimensiones físicas exactas del DOM) -->

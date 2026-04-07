@@ -20,7 +20,7 @@
         </button>
       </div>
 
-      <p class="header-value">Cada número es una frecuencia vibratoria que revela un aspecto de tu alma. Haz clic en cualquier número para descubrir su significado profundo.</p>
+      <p class="header-value">{{ $t('results.vibrationalFreq') }}</p>
     </div>
 
     <!-- Zona Central: Números de Destino -->
@@ -594,17 +594,17 @@ const resetForm = () => {
   margin-bottom: 0.5rem;
 }
 
-.mini-btn {
-  padding: 0.6rem 1.2rem !important;
-  font-size: 0.85rem !important;
-  width: auto !important;
+button.mini-btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.85rem;
+  width: auto;
   min-width: 130px;
 }
 
-.pulse-active {
+button.pulse-active {
   animation: sintonizando 1s infinite alternate;
-  background: white !important;
-  color: black !important;
+  background: white;
+  color: black;
 }
 
 @keyframes sintonizando {
