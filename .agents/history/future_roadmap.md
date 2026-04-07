@@ -1,35 +1,40 @@
-# 🗺️ Roadmap y Visión Futura (Aprobado)
+# 🗺️ Roadmap y Visión Futura: Camino a Producción (2026)
 
-> Este documento almacena el plan de acción estratégico aprobado por el Product Manager para las próximas sesiones. Sirve como contexto persistente para asegurar la continuidad del desarrollo de "ser33".
+> Este documento es la hoja de ruta oficial aprobada por el equipo para llevar "ser33" a un estado comercial, escalable y monetizable.
 
-## Directivas Fundamentales (Reglas para el desarrollo)
-1. **Control Cero Divagues**: Mantener fidelidad estricta al canon pitagórico y Omkin Kay (Sin referencias New Age sin justificación).
-2. **i18n & PDF Pipeline**: CUALQUIER módulo nuevo implementado (Sinastría, Clima Diario) DEBE incluir su respectiva traducción (`es.json`/`en.json`) Y debe inyectarse en el motor PDF (`usePdfGenerator.js`) verificando que el layout dinámico no se desfase en el salto de páginas.
-3. **Pausa en Pagos**: El sistema de monetización (pasarela) queda postergado para enfocarnos exclusivamente en la expansión de contenido y enganche visual.
+## 🏁 FASE 1: Higiene Crítica y Seguridad
+**Meta:** Blindar el proyecto y profesionalizar la base de código.
+- [ ] **Seguridad:** Revocación de secretos expuestos y migración a Env Vars de sistema.
+- [ ] **i18n Pro:** Migración de todos los textos hardcodeados en componentes (`NumberDetail`, `SoulDashboard`) a locales JSON.
+- [ ] **Limpieza:** Eliminación de perfiles de Chrome y assets huérfanos del repositorio.
+- [ ] **UI Sync:** Declaración de variables CSS faltantes (`--font-mistic`) y normalización de jerarquía.
+
+## 🏗️ FASE 2: Arquitectura y Escalabilidad
+**Meta:** Estructura técnica robusta para crecimiento masivo.
+- [ ] **Routing:** Implementación de `vue-router` para navegación real y URLs compartibles.
+- [ ] **State Management:** Migración a `Pinia` para un store centralizado de datos numerológicos.
+- [ ] **Performance:** Lazy loading de fuentes pesadas (PDF) y dependencias de terceros (`jsPDF`, `html2canvas`).
+- [ ] **Validación:** Motor de validación de entradas para asegurar integridad de cálculos.
+
+## 🚀 FASE 3: Calidad y Despliegue (Lanzamiento)
+**Meta:** Aplicación estable, rápida y visible en Google.
+- [ ] **QA Suite:** Completar cobertura de tests para cálculos avanzados y gematría.
+- [ ] **SEO Pro:** Imagen social (`og:image`), Schema.org y Twitter Cards.
+- [ ] **Infraestructura:** Despliegue en Vercel con dominio `ser33.com`.
+- [ ] **CI/CD:** Automatización de builds y despliegues mediante GitHub Actions.
+
+## 📈 FASE 4: Retención y Engagement
+**Meta:** Generar hábito de uso y viralidad orgánica.
+- [ ] **Daily Hook:** Implementar el "Clima Vibracional Diario" (interacción recurrente).
+- [ ] **Social Viral:** Integración con Web Share API para compartir resultados directamente a Instagram/WhatsApp.
+- [ ] **PWA:** App móvil instalable sin fricción.
+
+## 💰 FASE 5: Monetización
+**Meta:** Activación de flujos de ingresos directos.
+- [ ] **Freemium:** Implementación de muros de contenido para PDFs premium de 14 páginas.
+- [ ] **Stripe Checkout:** Pasarela de pagos integrada.
+- [ ] **Affiliate Hub:** Activación de la Biblioteca del Despertar con links de Amazon.
+- [ ] **Analytics:** Medición de conversión y embudos de venta.
 
 ---
-
-## 🚀 FASE 1: Crecimiento Orgánico y Engagement Visual
-
-### 1.1 "Soul Cards" (Módulo de Compartir en Redes)
-- **Objetivo**: Generar crecimiento orgánico permitiendo al usuario descargar una imagen resumida y altamentente estética de su "Código Pitagórico" para compartir en Instagram Stories / WhatsApp.
-- **Técnica**: Utilizar `html2canvas` o un componente SVG dinámico para capturar un diseño pre-maquetado.
-- **Assets Necesarios**: Fondos prístinos, texturas doradas/oscuras (sacred geometry backgrounds) diseñados con IA externa.
-
----
-
-## 🔮 FASE 2: Retención Abierta (Regreso Diario y Vinculación)
-
-### 2.1 El Clima Vibracional Diario (Horóscopo Numerológico)
-- **Objetivo**: Motivar al usuario a ingresar diariamente a la aplicación para revisar "la energía del día".
-- **Lógica**: Se calcula sumando `(Día Universal Actual + Número de Camino de Vida)`. Genera una predicción/consejo diario.
-- **Assets Necesarios**: Iconografía minimalista para los 9 tipos de días, representaciones del ciclo de sol/luna.
-
-### 2.2 Numerología Relacional (Sinastría)
-- **Objetivo**: Fomentar que el usuario pruebe la aplicación para amigos, parejas e hijos, analizando la "Fórmula de Vínculo".
-- **Lógica**: Promedio o suma reducida de los Caminos de Vida/Almas de dos personas para determinar el "Desafío de la Relación".
-- **Assets Necesarios**: Gráficos de interconexión (esferas duales, lemniscata y geometría de unión).
-
----
-
-> *Este roadmap es la guía prioritaria a inicializar por el Agente Director en la siguiente orden de ejecución.*
+> *Última actualización: 07-04-2026 tras Auditoría Técnica Integral.*

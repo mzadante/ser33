@@ -1,8 +1,8 @@
 # 📊 Estado del Proyecto: Manual del Destino
 
-> **Última actualización:** 2026-04-05 (Sesión 7 - Especialización y PDF Master)
-> **Fase actual:** Fase 5 — Finalización y Reporte ✅ (Consolidada)
-> **Avance global:** 100% (Funcionalidades Core Completas)
+> **Última actualización:** 2026-04-07 (Auditoría Integral de Producción)
+> **Fase actual:** Preparación para Producción 🚀 (Nueva Etapa)
+> **Avance global:** 0% del nuevo Roadmap de 5 Fases
 
 ---
 
@@ -47,7 +47,26 @@
 ## Bloqueos Actuales
 - Ninguno. El sistema de generación de manuales es robusto y multilingüe.
 
-## Próximos Pasos (Próxima Sesión)
-1. **Pasarela de Pagos**: Configuración de Stripe/PayPal (Opcional, según USER).
-2. **SEO y Metadatos**: Optimización de etiquetas OpenGraph para compartir en redes sociales.
-3. **Despliegue Final**: Subida a Vercel/Netlify con dominio propio.
+## 🚀 Nuevo Roadmap: Camino a Producción
+
+### Fase 1: Higiene Crítica e i18n ⏳
+- [ ] Seguridad: Revocar tokens y Env Vars.
+- [ ] i18n total de componentes.
+- [ ] Limpieza de Repo (Chrome profile).
+- [ ] Estabilización CSS.
+
+### Fase 2: Arquitectura y Escalabilidad ⏳
+- [ ] Implementar Vue Router.
+- [ ] Implementar Pinia Store.
+- [ ] Lazy Loading de Assets pesados.
+
+### Fase 3: Lanzamiento Pro ⏳
+- [ ] QA avanzado y Tests.
+- [ ] SEO, Meta y Social Images.
+- [ ] Deploy Vercel + Dominio.
+
+### Fase 4: Engagement Diario ⏳
+- [ ] Módulo Clima Vibracional.
+
+### Fase 5: Monetización ⏳
+- [ ] Stripe + Freemium Gate.

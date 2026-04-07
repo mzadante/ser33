@@ -3,6 +3,16 @@
 Este archivo registra el conocimiento destilado de cada sesión: lo aprendido, lo que falló y las soluciones maestras.
 
 ---
+5: 
+6: ## 🔬 Sesión 9 (2026-04-07) — Auditoría y Plan de Producción
+7: - **Aprendido**:
+8:     - **Seguridad Crítica**: Si un secreto (como el token de Notion) estuvo alguna vez en un archivo `.env` local, debe considerarse comprometido y rotarse inmediatamente al pasar a fase de prep-producción.
+9:     - **Navegación SPA**: El control de flujo mediante `v-if` en `App.vue` es un cuello de botella para SEO y analítica. La migración a `vue-router` es prioritaria para permitir deep-linking de resultados numerológicos.
+10:     - **Optimización de Assets Pesados**: Importar fuentes de PDF en Base64 de forma síncrona añade `>1MB` de carga innecesaria al inicio. Se requiere *Lazy Loading* (import dinámico) solo cuando el usuario haga clic en "Generar PDF".
+11: - **Fallido**: Auditoría visual automatizada (error de capacidad de modelo). Se resolvió mediante análisis profundo de código estático y lógica de componentes.
+12: - **Próximo Paso**: Ejecución de Fase 1 (Revocación de secretos y limpieza de repo).
+13: 
+14: ---
 
 ## 🧭 Sesión 7 (2026-04-05) — Especialización y Estabilidad PDF
 - **Aprendido**:
